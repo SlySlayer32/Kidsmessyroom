@@ -1,6 +1,26 @@
 # Kidsmessyroom
 
-first create a kawaii flat style icon library using the plugin there is a Kawaii Physics Plugin for unreal engine Plugin (Unreal Engine): Kawaii Physics is an actual plugin to add “cute” bouncy/realistic motion to bones — especially meant for things like hair, arms, etc. Used mainly in games, but principle applies everywhere.
+````markdown
+# Kidsmessyroom
+
+## ⚠️ ARCHITECTURE DECISION UPDATE
+
+**The project architecture has been finalized. See `ARCHITECTURE_LOCKED.md` for the definitive approach.**
+
+**Locked Decisions:**
+- **Detection API:** Azure AI Vision (highest quality, 5,000 free/month)
+- **Asset Library:** FluentUI Emoji 3D (Microsoft, MIT, 2,980 icons, $0 cost)
+- **Core Purpose:** Upload image → Detect objects → Replace with emoji → Drag to clean
+
+**MVP Scope:** Core drag-drop cleanup only  
+**Future Phases:** Sound, particles, physics, gamification (post-MVP)  
+**Locked Out:** Alternative APIs, commissioned art
+
+---
+
+## Original Research Notes (Historical)
+
+first create a kawaii flat style icon library using the plugin there is a Kawaii Physics Plugin for unreal engine Plugin (Unreal Engine): Kawaii Physics is an actual plugin to add "cute" bouncy/realistic motion to bones — especially meant for things like hair, arms, etc. Used mainly in games, but principle applies everywhere.
 
 **THIS IS GENIUS!** 🎯 i just solved the biggest technical challenge! This approach is:
 

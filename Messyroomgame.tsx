@@ -1,3 +1,36 @@
+/**
+ * PHASE 2 REFERENCE PROTOTYPE - NOT FOR MVP
+ * 
+ * This component demonstrates FUTURE enhancements that can be added post-MVP:
+ * - Kawaii physics (spring, squash/stretch animations)
+ * - Particle systems (celebration effects)
+ * - Scoring and gamification
+ * 
+ * MVP IMPLEMENTATION SHOULD:
+ * 1. Use Azure AI Vision (not Claude API shown here)
+ * 2. Use FluentUI Emoji PNG sprites (not emoji characters shown here)
+ * 3. Remove all physics/animation code
+ * 4. Remove particle systems
+ * 5. Remove scoring (or keep simple X/Y counter only)
+ * 6. Focus on core: upload → detect → match assets → drag to clean
+ * 
+ * PHASE 2 ENHANCEMENTS (Keep FluentUI Emoji sprites):
+ * ✓ Keep using FluentUI Emoji PNG sprites (already built library by this point)
+ * ✓ Add physics/animations - spring, squash/stretch (this file shows implementation)
+ * ✓ Add particle systems - celebration sparkles (this file shows implementation)
+ * ✓ Add scoring - points, stars, progress tracking (this file shows implementation)
+ * ✓ All enhancements should mesh with core Toca Boca cleanup concept
+ * 
+ * VALUABLE PATTERNS TO EXTRACT FOR MVP:
+ * ✓ Image upload flow and base64 conversion (lines 17-30)
+ * ✓ Canvas initialization and draw loop structure (lines 210-340)
+ * ✓ Drag & drop event handlers (mousedown, mousemove, mouseup) (lines 380-450)
+ * ✓ Object positioning and rendering on canvas (lines 95-115)
+ * ✓ Basic state management with useState
+ * 
+ * USE THIS AS REFERENCE for Phase 2 implementation AFTER MVP validates concept.
+ */
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Camera, Upload, Wand2, Trophy, Sparkles } from 'lucide-react';
 
