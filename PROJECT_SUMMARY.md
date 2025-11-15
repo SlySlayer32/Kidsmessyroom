@@ -34,6 +34,34 @@ What you'll learn:
 
 ---
 
+### 🆕 **[ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)** - Open Source Icon Pack Analysis
+**Comprehensive investigation of free/open-source icon libraries** ⭐ NEW!
+
+**Save $750-1,500!** Use high-quality open source icon packs instead of commissioning artists.
+
+What's included:
+- ✅ Detailed analysis of 10+ icon pack sources
+- ✅ FluentUI Emoji 3D (Microsoft) - 2,980 icons, MIT License
+- ✅ Kenney.nl - 70,000+ game assets, CC0 License
+- ✅ Game-icons.net - 4,170+ icons, CC BY 3.0
+- ✅ React Kawaii - Perfect kawaii style components
+- ✅ Complete licensing comparison
+- ✅ Coverage analysis for 50 needed assets
+- ✅ Implementation strategy and code examples
+- ✅ Cost comparison (open source vs artist vs AI)
+
+**Key Findings:**
+- 🎯 **FluentUI Emoji covers 92% of needs (46/50 assets)**
+- 💰 **Cost:** $0-10 (vs $750-1,500 for artist)
+- ⚡ **Speed:** 3-5 hours (vs 2-4 weeks)
+- 📜 **License:** MIT/CC0 (commercial use, minimal attribution)
+- ⭐ **Quality:** Professional Microsoft-grade assets
+
+**Time to read:** 20-30 minutes  
+**Time to implement:** 3-5 hours total
+
+---
+
 ### 🆕 **[DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)** - Cost-Optimized Strategy
 **Plugin-based asset generation using AI and automation**
 
@@ -301,7 +329,23 @@ Professional games like Toca Boca, The Sims, and Animal Crossing use pre-made as
 
 ## 💰 Budget Summary
 
-### 🆕 Option 1A: DIY Development + DIY Assets (RECOMMENDED)
+### 🆕 Option 0: DIY Development + Open Source Icons (LOWEST COST) ⭐ NEW!
+**Total:** $200-250 one-time + $115/month
+
+Breakdown:
+- **Asset creation: $0 (FluentUI Emoji + open source) 💰 SAVE $750!**
+- Domain & hosting: $50
+- API testing: $50
+- Marketing: $100
+- Tools & misc: $50
+- Monthly operating: $115 (Claude API, hosting, database)
+
+**Best for:** Maximum cost savings with professional quality
+**See:** [ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)
+
+---
+
+### Option 1A: DIY Development + AI Generated Assets (RECOMMENDED)
 **Total:** $755 one-time + $115/month
 
 Breakdown:
@@ -312,7 +356,8 @@ Breakdown:
 - Tools & misc: $50
 - Monthly operating: $115 (Claude API, hosting, database)
 
-**Best for:** Cost-conscious technical founders
+**Best for:** Cost-conscious technical founders wanting custom style
+**See:** [DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)
 
 ---
 
@@ -331,7 +376,23 @@ Breakdown:
 
 ---
 
-### Option 2A: Hire Developer + DIY Assets (COST-OPTIMIZED)
+### Option 2A: Hire Developer + Open Source Icons (ULTRA-OPTIMIZED) 🆕
+**Total:** $3,200-5,200 one-time + $115/month
+
+Breakdown:
+- **Asset creation: $0 (Open source icons)**
+- Development: $3,000-5,000 (Upwork/freelancer)
+- Domain & hosting: $50
+- Marketing: $200
+- Tools & misc: $100
+- Monthly operating: $115
+
+**Best for:** Non-technical founders wanting maximum savings
+**See:** [ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)
+
+---
+
+### Option 2B: Hire Developer + AI Assets (COST-OPTIMIZED)
 **Total:** $3,755-5,755 one-time + $115/month
 
 Breakdown:
@@ -342,11 +403,11 @@ Breakdown:
 - Tools & misc: $100
 - Monthly operating: $115
 
-**Best for:** Non-technical founders wanting to minimize costs
+**Best for:** Non-technical founders wanting custom style at low cost
 
 ---
 
-### Option 2B: Hire Developer + Commission Assets (ORIGINAL)
+### Option 2C: Hire Developer + Commission Assets (ORIGINAL)
 **Total:** $4,500-6,500 one-time + $115/month
 
 Breakdown:
@@ -508,7 +569,7 @@ Follow [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md):
 **A:** With a developer, yes. DIY might take 10-12 weeks as your first project.
 
 ### Q: What if Claude API is too expensive?
-**A:** At scale, train a custom YOLO model. But Claude is cost-effective for first 5,000+ users.
+**A:** 🆕 See [VISION_API_COMPARISON.md](./VISION_API_COMPARISON.md) for cost-effective alternatives! Google Gemini Flash offers 70% savings, and Azure AI Vision has a free tier (5,000 images/month). At scale, train a custom YOLO model.
 
 ### Q: Do I need all 50 assets to start?
 **A:** No! Start with 30 most common objects. Add more based on user data.
@@ -534,6 +595,9 @@ Kidsmessyroom/
 ├── TECHNICAL_RESEARCH.md       # Complete technical strategy
 ├── IMPLEMENTATION_GUIDE.md     # Code examples & tutorials
 ├── VISUAL_ROADMAP.md          # 8-week development plan
+├── DIY_AUTOMATED_APPROACH.md   # Cost-optimized asset generation
+├── ICON_PACK_RESEARCH.md       # Open source icon pack analysis
+├── VISION_API_COMPARISON.md    # 🆕 Vision API cost analysis
 └── Messyroomgame.tsx          # Early prototype component
 ```
 
@@ -542,10 +606,13 @@ Kidsmessyroom/
 **Before you start:**
 - ✅ PROJECT_SUMMARY.md (this file)
 - ✅ QUICK_START.md
+- ✅ 🆕 ICON_PACK_RESEARCH.md (asset sourcing options)
 
 **During planning (Week 1):**
 - ✅ TECHNICAL_RESEARCH.md (skim, then deep dive)
 - ✅ VISUAL_ROADMAP.md (Week 1 section)
+- ✅ DIY_AUTOMATED_APPROACH.md (cost optimization)
+- ✅ ICON_PACK_RESEARCH.md (choose icon source)
 
 **During development (Week 2-8):**
 - ✅ IMPLEMENTATION_GUIDE.md (reference as needed)
@@ -561,7 +628,8 @@ By the end of this project, you will have:
 ### Week 1
 - [ ] Validated object detection works (>80% accuracy)
 - [ ] Created prioritized list of 50 objects
-- [ ] Hired artist for Toca Boca-style sprites
+- [ ] Reviewed icon pack options (see ICON_PACK_RESEARCH.md)
+- [ ] Chosen asset source: Artist / Open Source / AI Generation
 - [ ] Decided on DIY vs hire developer
 - [ ] Committed budget and timeline
 
@@ -587,11 +655,12 @@ By the end of this project, you will have:
 
 1. **Asset library approach** is the key innovation (not AI style transfer)
 2. **8-week timeline** is realistic with clear roadmap
-3. **$1,500-6,500 budget** depending on DIY vs hire
-4. **Proven technology** - how Toca Boca actually works
-5. **Start small** - 50 assets covers 80% of objects
-6. **Test early** - validate with kids in Week 8
-7. **Launch fast** - iterate based on real feedback
+3. **🆕 Open source icons can save $750-1,500** - See ICON_PACK_RESEARCH.md
+4. **$200-6,500 budget** depending on asset source and DIY vs hire
+5. **Proven technology** - how Toca Boca actually works
+6. **Start small** - 50 assets covers 80% of objects
+7. **Test early** - validate with kids in Week 8
+8. **Launch fast** - iterate based on real feedback
 
 ---
 
@@ -599,9 +668,10 @@ By the end of this project, you will have:
 
 1. **Read [QUICK_START.md](./QUICK_START.md)** - Your Week 1 guide
 2. **Test Claude API** - Validate it works with your images
-3. **Find an artist** - Browse Fiverr for Toca Boca style
-4. **Make decision** - DIY or hire developer?
-5. **Follow roadmap** - Week-by-week plan in [VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)
+3. **🆕 Review [ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)** - Choose your asset source
+4. **Choose assets** - Open Source / Artist / AI Generation
+5. **Make decision** - DIY or hire developer?
+6. **Follow roadmap** - Week-by-week plan in [VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)
 
 ---
 
