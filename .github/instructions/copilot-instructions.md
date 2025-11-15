@@ -1,195 +1,282 @@
 ---
 applyTo: '**'
 ---
-You are an AI agent assigned to assist in building a web-based Messy Room Cleanup Game for kids aged 6-10. The game allows kids to upload photos of their messy rooms, detects objects using Azure AI Vision, and lets them drag and drop items in the area using FluentUI Emoji 3D assets.
+You are an AI agent assigned to assist in building a web-based Messy Room Cleanup Game for kids aged 6-10. The game allows kids to upload photos of their messy rooms, detects objects using OpenAI GPT-4o Vision API, and lets them drag and drop items using Konva.js with FluentUI Emoji 3D assets.
 
-the user is a non technical founder looking to build an MVP version of this game. Your task is to act as lead developer and provide detailed production-ready code, no mockups or prototypes. 100% working code only. 
+The user is a non-technical founder looking to build an MVP version of this game. Your task is to act as lead developer and provide detailed production-ready code, no mockups or prototypes. 100% working code only.
+
+**⭐ SOURCE OF TRUTH:** All decisions follow **`VISUAL_ROADMAP.md`** (Gold Standard development plan)
 
 # AI Agent Instructions: Messy Room Cleanup Game (MVP)
-## Core Application Flow (Locked)
+## Core Application Flow (From VISUAL_ROADMAP.md)
 ```
-Photo Upload → Azure AI Vision Detection → Object List Created → Object number and types identified → 
-Asset Matching (FluentUI Emoji Library) → Remove Backgrounds & Prepare Sprites →
-Canvas Rendering → 
-Interactive Drag & Drop Cleanup
+Photo Upload → OpenAI GPT-4o Vision Detection → Object List with Bounding Boxes → 
+Asset Matching (FluentUI Emoji Library) → 
+Konva.js Canvas Rendering (Toca Boca Style Background) → 
+Interactive Drag & Drop Cleanup (Konva.js Draggable) →
+Progress Tracking
 ```
 
-**Critical Design Decisions:**
-- Azure AI Vision for highest quality detection (5,000 free images/month)
-- FluentUI Emoji 3D (Microsoft, MIT) for consistent, high-quality sprites
-- 80-95% match rate (good enough!)
-- 10x faster than style transfer (3-5s vs 20-30s)
-- $0 cost for MVP phase
-- Consistent Toca Boca art style across all users
+**Critical Design Decisions (Per VISUAL_ROADMAP.md):**
+- **OpenAI GPT-4o Vision API** for state-of-the-art object detection with positions
+- **Konva.js (react-konva)** for powerful 2D canvas with React integration
+- **FluentUI Emoji 3D** (Microsoft, MIT) for MVP asset library (50-70 PNGs)
+- **8-week MVP timeline** with clear phase gates
+- **MVP First, Polish Second** philosophy
+- **Cost-effective** per-call basis (~$0.01-0.03 per image)
+- **Simpler** than training custom models
 
-## Asset Library: FluentUI Emoji (LOCKED CHOICE)
+## Asset Library: FluentUI Emoji 3D (MVP CHOICE)
 
 **Source:** Microsoft FluentUI Emoji 3D  
 **License:** MIT (free for commercial use)  
-**Coverage:** 2,980 icons, covers 92% of needs  
+**MVP Scope:** 50-70 high-quality 3D PNGs for common room objects  
 **Cost:** $0  
-**Setup Time:** 3-5 hours  
+**Setup Time:** 3-5 hours (Week 1-2 of VISUAL_ROADMAP.md)
 
 **Repository:** https://github.com/microsoft/fluentui-emoji
 
-### Asset Organization
+### Asset Organization (From VISUAL_ROADMAP.md)
 ```
 public/assets/
-├── toys/          # From FluentUI: teddy bear, car, ball, etc.
-├── clothing/      # From FluentUI: shirt, pants, dress, etc.
-├── books/         # From FluentUI: book, notebook, etc.
-└── misc/          # From FluentUI: pillow, blanket, etc.
+├── toys/          # FluentUI: teddy bear, car, ball, blocks, etc.
+├── clothing/      # FluentUI: shirt, pants, dress, socks, etc.
+├── books/         # FluentUI: book, notebook, papers, etc.
+└── furniture/     # FluentUI: pillow, blanket, etc.
 ```
+
+**Note:** Phase 2 will replace with custom-commissioned Toca Boca-style art.
 
 ## Key Technical Patterns
 
-### Object Detection: Azure AI Vision (LOCKED CHOICE)
+### Object Detection: OpenAI GPT-4o Vision (LOCKED CHOICE)
 
-**Why Azure AI Vision:**
-- **Highest quality detection** among all options
-- **Free tier:** 5,000 images/month (perfect for MVP)
-- **Paid tier:** $1 per 1,000 images after free tier
-- **Excellent accuracy:** 90-95% object detection
-- **Fast processing:** 1-2 seconds
-- **Enterprise-grade reliability**
+**Why GPT-4o Vision (Per VISUAL_ROADMAP.md):**
+- **State-of-the-art** for identifying objects and positions from images
+- **High accuracy:** 90-95% object detection
+- **Cost-effective** per-call basis (~$0.01-0.03 per image)
+- **Simpler** than training custom models
+- **Structured JSON output** with bounding boxes
+- **Fast processing:** 1-3 seconds
 
-**Azure AI Vision Integration (`app/api/detect/route.ts`):**
+**OpenAI GPT-4o Integration (`app/api/detect/route.ts`):**
 ```typescript
-// Call Azure Computer Vision API
-const response = await fetch(
-  `https://${AZURE_ENDPOINT}/vision/v3.2/analyze?visualFeatures=Objects,Tags`,
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': AZURE_KEY,
-    },
-    body: JSON.stringify({ url: imageUrl })
-  }
-);
+// Call OpenAI Vision API with specific prompt
+const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${OPENAI_API_KEY}`,
+  },
+  body: JSON.stringify({
+    model: 'gpt-4o',
+    messages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            text: 'Analyze this image of a room. Identify every distinct object on the floor or furniture. For each object, provide its name and its bounding box coordinates [x, y, width, height]. Return this data as a clean JSON array.'
+          },
+          {
+            type: 'image_url',
+            image_url: { url: imageBase64 }
+          }
+        ]
+      }
+    ]
+  })
+});
 
-// Returns: List of detected objects with bounding boxes
-// Example: [{ name: "teddy bear", confidence: 0.95, rectangle: {...} }]
+// Returns: JSON array with objects and bounding boxes
+// Example: [{ name: "teddy bear", bbox: [100, 150, 50, 60] }, ...]
 ```
 
-**Matching Algorithm (`lib/matching.ts`):**
+**Matching Algorithm (`lib/matching.ts`) - From VISUAL_ROADMAP.md Week 5-6:**
 1. Exact name match to FluentUI Emoji
-2. Keyword matching (e.g., "stuffed animal" → teddy bear emoji)
-3. Category-based fallback (generic_toy, generic_clothing)
-4. Ultimate fallback: question mark emoji
+2. Keyword matching with comprehensive synonym search
+   - Example: "stuffed animal" → teddy bear asset via keywords
+3. Category-based fallback (generic toy box, generic clothing pile)
+4. Ultimate fallback: question mark emoji or generic "clutter" icon
 
-**Asset Metadata Structure (`public/assets.json`):**
+**Asset Metadata Structure (`public/assets.json`) - From VISUAL_ROADMAP.md:**
 ```json
 {
   "teddy_bear": {
-    "file": "/assets/toys/teddy_bear.png",
-    "fluent_emoji": "teddy-bear",
-    "category": "toys",
-    "keywords": ["teddy", "bear", "stuffed", "plush"],
-    "size": "medium"
+    "id": "teddy_bear",
+    "file": "/assets/toys/teddy-bear.png",
+    "keywords": ["teddy", "bear", "stuffed animal", "plush", "toy"],
+    "category": "toys"
   }
 }
 ```
 
-### Canvas Rendering & Interaction
+**Critical:** Keywords are the "brain" for matching. Be thorough!
 
-**HTML5 Canvas approach** (not DOM/CSS):
-- Better performance for 20-50 draggable objects
-- Manual draw loop with `requestAnimationFrame`
-- Preload all FluentUI Emoji sprites before rendering
-- Draw order: Toca Boca style background → objects → selection highlights
+### Canvas Rendering & Interaction: Konva.js (LOCKED CHOICE)
 
-**Drag & Drop (`components/GameCanvas.tsx`):**
-- Mouse/touch events for selecting objects
-- Smooth dragging with position updates
-- Drop zones for "cleaned" vs "messy" areas
-- Visual feedback on object selection
+**Why Konva.js (Per VISUAL_ROADMAP.md):**
+- Powerful 2D HTML5 canvas library
+- Seamless React integration via react-konva
+- Built-in drag-and-drop with `draggable` property
+- Simple scaling and layering
+- Better DX than raw Canvas API
 
-## Tech Stack (Locked)
+**Konva.js Setup (`components/GameCanvas.tsx`) - Week 5-7:**
+```typescript
+import { Stage, Layer, Image as KonvaImage } from 'react-konva';
 
-**Framework:** Next.js 14 (App Router) + React + TypeScript  
-**Styling:** Tailwind CSS  
-**State:** Zustand  
-**Detection API:** Azure AI Vision (5,000 free/month)  
-**Asset Library:** FluentUI Emoji 3D (Microsoft, MIT)  
-**Deployment:** Vercel (free tier sufficient for MVP)  
-**Canvas:** HTML5 Canvas for rendering and drag-drop
-
-## File Structure
-
-```
-app/
-├── api/detect/route.ts          # Azure AI Vision integration
-├── game/page.tsx                # Main game page
-components/
-├── ImageUpload.tsx              # Photo upload with preview
-├── GameCanvas.tsx               # HTML5 canvas renderer with drag-drop
-├── ObjectList.tsx               # Display detected objects
-lib/
-├── detection.ts                 # Azure AI Vision wrapper
-├── matching.ts                  # Match objects to FluentUI Emoji
-├── store.ts                     # Zustand state management
-public/
-├── assets/                      # FluentUI Emoji library
-│   ├── toys/                    # Organized by category
-│   ├── clothing/
-│   ├── books/
-│   └── misc/
-└── assets.json                  # Metadata mapping
+// Stage = canvas container
+// Layer = drawing layer (background, objects, UI)
+// KonvaImage = sprite with built-in drag-drop
 ```
 
-## Development Workflow (Simplified)
+**Drag & Drop (Week 7 of VISUAL_ROADMAP.md):**
+- Use Konva.js built-in `draggable` property
+- Visual feedback: scale up, add shadow on drag
+- Cleanup zones: invisible rectangles for drop targets
+- Snap objects into place when dropped in zone
+- Update progress counter on successful cleanup
 
-### Week 1: Setup & Validation
-- Set up Azure AI Vision account (free tier)
-- Download and organize FluentUI Emoji 3D assets
-- Test detection on 10 messy room photos
-- Validate 80%+ accuracy and asset coverage
+## Tech Stack (From VISUAL_ROADMAP.md - Locked)
 
-### Weeks 2-3: Core Pipeline
-- Build upload → Azure detection → object list creation
-- Implement asset matching (detected object → FluentUI Emoji)
-- Create Toca Boca style canvas background
+**Frontend Framework:** Next.js (React) - Robust, great for web apps, easy to deploy  
+**Language:** TypeScript - Type safety and better DX  
+**Styling:** Tailwind CSS - Utility-first CSS framework  
+**State Management:** Zustand - Lightweight state management  
+**UI Icons:** lucide-react - Clean, modern icon set  
+**Detection API:** OpenAI GPT-4o Vision API - State-of-the-art object detection  
+**Asset Library:** FluentUI Emoji 3D (Microsoft, MIT) - Free, high-quality sprites  
+**Game Canvas:** Konva.js (react-konva) - Powerful 2D canvas with React integration  
+**Deployment:** Vercel - Generous free tier, perfect for Next.js MVP
 
-### Week 4: Interaction
-- Implement canvas rendering with matched assets
-- Add drag & drop for each object
-- Track "cleaned" vs "messy" state
+### Installation (Week 1 of VISUAL_ROADMAP.md):
+```bash
+npx create-next-app@latest toca-room --typescript --tailwind
+cd toca-room
+npm install konva react-konva zustand lucide-react
+```
 
-### Week 5: Polish & Launch
-- Visual polish (Toca Boca aesthetic)
-- Beta test with kids
-- Deploy MVP
+## File Structure (From VISUAL_ROADMAP.md)
 
-**Reference:** `VISUAL_ROADMAP.md` for detailed week-by-week tasks.
+```
+toca-room/
+├── app/
+│   ├── api/
+│   │   └── detect/
+│   │       └── route.ts          # OpenAI GPT-4o Vision integration
+│   ├── game/
+│   │   └── page.tsx              # Main game page
+│   ├── layout.tsx
+│   └── page.tsx                  # Landing/upload page
+├── components/
+│   ├── ImageUpload.tsx           # Photo upload with preview
+│   ├── GameCanvas.tsx            # Konva.js Stage component
+│   └── ProgressTracker.tsx       # Progress UI
+├── lib/
+│   ├── matching.ts               # Asset matching algorithm
+│   └── store.ts                  # Zustand state management
+├── public/
+│   └── assets/
+│       ├── toys/                 # FluentUI Emoji 3D
+│       ├── clothing/
+│       ├── books/
+│       ├── furniture/
+│       └── assets.json           # Master metadata with keywords
+└── docs/
+    └── VISUAL_ROADMAP.md         # ⭐ Gold Standard source of truth
+```
 
-## Critical Documentation Files
+## Development Workflow (8-Week MVP from VISUAL_ROADMAP.md)
 
-- `START_HERE.md` - Quick reference and decision matrix ⭐ **START HERE**
-- `ARCHITECTURE_LOCKED.md` - Complete locked architecture (source of truth)
-- `ICON_PACK_RESEARCH.md` - FluentUI Emoji details and setup
-- `IMPLEMENTATION_GUIDE.md` - Code examples for Azure + FluentUI Emoji
-- `VISUAL_ROADMAP.md` - Week-by-week development plan (focus on core features)
-- `Messyroomgame.tsx` - Phase 2 reference prototype (shows future enhancements)
+### Week 1-2: Foundations & Asset Pipeline
+- Setup Next.js with TypeScript, Tailwind, Konva
+- Download & organize 50-70 FluentUI Emoji 3D PNGs
+- Build master asset metadata file with comprehensive keywords
+- **Deliverable:** Functional project displaying all organized assets
+
+### Week 3-4: AI Vision & Object Detection
+- Set up OpenAI GPT-4o API
+- Build image upload component
+- Create detection API route with GPT-4o integration
+- Build debug UI for detected objects
+- **Deliverable:** Upload → detection → object list working
+
+### Week 5-6: Scene Reconstruction & Asset Matching
+- Build asset matching algorithm with fallbacks
+- Create Konva.js GameCanvas component
+- Set up Toca Boca-style background layer
+- Position FluentUI sprites using bounding boxes
+- **Deliverable:** Static Toca Boca scene from photo
+
+### Week 7: Interaction & Core Gameplay Loop
+- Implement Konva.js drag & drop
+- Define cleanup zones
+- Implement cleanup logic with visual feedback
+- Build progress UI tracker
+- **Deliverable:** Fully playable MVP
+
+### Week 8: User Testing, Polish & Deployment
+- Beta test with 3-5 kids (with parental permission)
+- Address critical issues
+- Polish UI/UX and responsiveness
+- Deploy to Vercel production
+- **Deliverable:** 🎉 MVP LAUNCHED!
+
+**Complete details:** See `VISUAL_ROADMAP.md` for day-by-day task breakdowns.
+
+## Critical Documentation Files (Priority Order)
+
+1. **`VISUAL_ROADMAP.md`** ⭐⭐⭐ - **GOLD STANDARD SOURCE OF TRUTH**
+   - Complete 8-week MVP plan with daily tasks
+   - All technology decisions and reasoning
+   - Phase 2 enhancement roadmap
+   - **READ THIS FIRST**
+
+2. **`ARCHITECTURE_LOCKED.md`** - Consolidated architecture (aligned with VISUAL_ROADMAP.md)
+   - Technology stack summary
+   - Success metrics
+   - File structure
+
+3. **`START_HERE.md`** - Quick reference guide
+   - Decision matrix
+   - Quick start steps
+   - Common tasks
+
+4. **`ICON_PACK_RESEARCH.md`** - FluentUI Emoji setup details
+   - Download instructions
+   - Organization guide
+   - Coverage analysis
+
+5. **`IMPLEMENTATION_GUIDE.md`** - Code examples
+   - OpenAI GPT-4o integration patterns
+   - Konva.js canvas examples
+   - Asset matching algorithm
+
+6. **`Messyroomgame.tsx`** - Phase 2 reference prototype
+   - Shows future enhancements (physics, particles, scoring)
+   - **Do NOT use for MVP** - reference only for Phase 2
 
 ## Using Messyroomgame.tsx as Reference
 
-When building MVP, extract these patterns from `Messyroomgame.tsx`:
-- Image upload flow (lines 33-46)
-- Canvas setup and draw loop (lines 210-340)
-- Drag & drop handlers (lines 380-450)
-- Object positioning logic (lines 95-115)
+**For MVP (Week 1-8):** Do NOT use Messyroomgame.tsx patterns directly
+- MVP uses OpenAI GPT-4o (not Claude)
+- MVP uses Konva.js (not raw Canvas)
+- MVP has NO physics, particles, or scoring
+- Follow VISUAL_ROADMAP.md Week 1-8 tasks exactly
 
-**Do NOT copy:** Physics code, particle systems, scoring, Claude API calls
-
-**When building Phase 2 features** (post-MVP), reference the full implementation for:
-- Spring physics implementation
-- Squash/stretch animations
+**For Phase 2 Only** (post-MVP launch), reference `Messyroomgame.tsx` for:
+- Spring physics implementation patterns
+- Squash/stretch animation concepts
 - Particle burst effects
 - Celebration sequences
-- Scoring system
+- Scoring system logic
 
-**Important for Phase 2:** Keep using FluentUI Emoji PNG sprites (not the emoji characters shown in prototype). By Phase 2, the library will be built and working. Add physics/particles/scoring on top of the existing FluentUI sprite system. All enhancements must mesh with the core Toca Boca cleanup concept.
+**Phase 2 Critical Note:** 
+- Continue using FluentUI Emoji PNG sprites (not emoji characters)
+- Layer physics/particles/scoring on top of existing Konva.js system
+- All enhancements must complement core Toca Boca cleanup concept
+- Only implement Phase 2 after MVP validates the concept is fun
 
 ## Conventions & Best Practices
 
@@ -211,62 +298,79 @@ When building MVP, extract these patterns from `Messyroomgame.tsx`:
 - Zustand for state management
 - Canvas-based rendering (not DOM manipulation)
 
-## Performance Targets
+## Performance Targets (From VISUAL_ROADMAP.md)
 
-- **Detection:** < 2 seconds (Azure AI Vision)
-- **Rendering:** 60 FPS canvas performance
-- **Match Rate:** 80%+ correct sprite matches
-- **Coverage:** 90%+ detected objects have matching emoji
+- **Detection:** < 5 seconds total (upload → rendered scene)
+- **GPT-4o API:** 1-3 seconds for object detection
+- **Rendering:** 60 FPS Konva.js canvas performance
+- **Match Rate:** 80-95% correct sprite matches
+- **Coverage:** 85%+ detected objects have matching FluentUI Emoji
 
-## Cost Targets (Monthly at 1K users)
+## Cost Targets (From VISUAL_ROADMAP.md)
 
-**Locked Architecture Stack:**
-- Azure AI Vision: $0/month (free tier covers 5,000 images)
+**MVP Phase (1K users, ~3K images/month):**
+- OpenAI GPT-4o API: $30-90/month (~$0.01-0.03 per image)
 - FluentUI Emoji: $0 (MIT license, free)
-- Hosting: $0-20 (Vercel free tier)
-- **Total: $0-20/month for MVP**
+- Hosting (Vercel): $0 (free tier sufficient)
+- **Total: $30-90/month for MVP**
 
-Scales to: $25-50/month at 10K users
+**Scaling (10K users, ~30K images/month):**
+- OpenAI GPT-4o API: $300-900/month
+- Hosting (Vercel Pro): $20/month
+- **Total: $320-920/month**
+
+**Phase 3+ Optimization:** Train custom YOLO model to reduce per-image cost at scale
 
 ## Common Pitfalls
 
-1. **Don't aim for 100% object matching** - 80-90% coverage is excellent with FluentUI Emoji
-2. **Don't use other APIs** - Azure AI Vision is locked for highest quality detection
-3. **Don't source other icon libraries** - FluentUI Emoji is locked for consistency
-4. **Don't add Phase 2 features to MVP** - Focus on core functionality first
-5. **Don't skip kid beta testing** - Adults can't predict what's fun for 6-10 year olds
-6. **Don't build mobile apps first** - Web works everywhere, iterate faster
+1. **Don't aim for 100% object matching** - 80-90% is excellent per VISUAL_ROADMAP.md
+2. **Don't use Azure/Claude/Gemini** - OpenAI GPT-4o is locked choice
+3. **Don't use raw Canvas** - Konva.js is locked for React integration
+4. **Don't add Phase 2 features to MVP** - Follow 8-week MVP plan strictly
+5. **Don't skip kid beta testing (Week 8)** - Critical for validating fun factor
+6. **Don't build mobile apps first** - Web MVP first, iterate faster
+7. **Don't commission custom art for MVP** - FluentUI Emoji is MVP choice, custom art is Phase 2
 
 ## Questions? Check These First
 
-- **"How do I add a new object type?"** → Find matching FluentUI Emoji, add to `public/assets/[category]/`, update `assets.json`
-- **"Why won't objects detect properly?"** → Azure AI Vision is highest quality - check confidence threshold in `app/api/detect/route.ts`
-- **"Can I use a different icon library?"** → No, FluentUI Emoji is locked for quality and licensing
-- **"Can I use Claude/Gemini instead?"** → No, Azure AI Vision is locked for detection quality
-- **"How do I organize FluentUI assets?"** → See `ICON_PACK_RESEARCH.md` for setup guide
+- **"How do I add a new object type?"** → Find matching FluentUI Emoji 3D PNG, add to `public/assets/[category]/`, update `assets.json` with comprehensive keywords
+- **"Why won't objects detect properly?"** → Check GPT-4o prompt in `app/api/detect/route.ts`, refine for better structured output
+- **"Can I use a different icon library?"** → No, FluentUI Emoji is MVP choice per VISUAL_ROADMAP.md
+- **"Can I use Azure/Claude/Gemini instead?"** → No, OpenAI GPT-4o is locked per VISUAL_ROADMAP.md
+- **"Can I use raw Canvas instead of Konva?"** → No, Konva.js is locked for React integration per VISUAL_ROADMAP.md
+- **"How do I organize FluentUI assets?"** → See `ICON_PACK_RESEARCH.md` and VISUAL_ROADMAP.md Week 1-2
+- **"When do I add physics/sound/scoring?"** → Phase 2 only, after MVP launch validates concept
 
-## Core Project Truth (Locked)
+## Core Project Truth (From VISUAL_ROADMAP.md)
 
-**Remember:** Kid uploads image → Azure detects objects (creates list) → FluentUI Emoji assets replace detected objects in Toca Boca style scene → User drags objects to clean digitally.
+**Remember:** Kid uploads image → OpenAI GPT-4o detects objects with bounding boxes → Asset matching finds FluentUI Emoji sprites → Konva.js renders Toca Boca-style scene → User drags objects to cleanup zones → Progress tracked.
 
-**MVP Scope:** Core drag-drop cleanup functionality only.
+**MVP Scope (Week 1-8):** Core drag-drop cleanup functionality only. NO physics, sound, particles, or gamification.
 
-**Post-MVP (Future):** Sound effects, particle systems, physics animations, and gamification can be added in Phase 2.
+**Phase 2 (Post-MVP):** Custom art, physics (react-spring), sound effects, particle systems, gamification - only after MVP validates concept is fun and engaging.
 
 ## Repository Context
 
 **Owner:** SlySlayer32  
-**Status:** Research/planning phase  
-**Next Step:** Set up Azure AI Vision free tier + download FluentUI Emoji 3D assets
+**Status:** Research/planning phase → Ready to implement 8-week MVP  
+**Next Step:** Set up OpenAI GPT-4o API + download FluentUI Emoji 3D assets (Week 1)
 
 ## Getting Started as an Agent
 
-1. **`START_HERE.md`** - Quick reference and decision matrix
-2. **`ARCHITECTURE_LOCKED.md`** - Complete locked architecture (source of truth)
-3. **This file** - AI agent-specific guidance
-4. **`ICON_PACK_RESEARCH.md`** - FluentUI Emoji setup details
-5. **`IMPLEMENTATION_GUIDE.md`** - Code patterns (focus on Azure sections)
+1. **`VISUAL_ROADMAP.md`** ⭐ - **READ THIS FIRST** - Gold standard source of truth
+2. **`ARCHITECTURE_LOCKED.md`** - Consolidated architecture aligned with VISUAL_ROADMAP.md
+3. **`START_HERE.md`** - Quick reference and decision matrix
+4. **This file** - AI agent-specific guidance
+5. **`ICON_PACK_RESEARCH.md`** - FluentUI Emoji setup details
+6. **`IMPLEMENTATION_GUIDE.md`** - Code patterns (update to use GPT-4o + Konva.js)
 
-**Core truth:** Azure AI Vision + FluentUI Emoji + Drag-Drop cleanup. Nothing more.
+**Core truth:** OpenAI GPT-4o Vision + Konva.js + FluentUI Emoji + Drag-Drop cleanup. Nothing more for MVP.
 
-**If docs conflict:** `ARCHITECTURE_LOCKED.md` > `.github/copilot-instructions.md` > other docs
+**If docs conflict:** `VISUAL_ROADMAP.md` > `ARCHITECTURE_LOCKED.md` > this file > other docs
+
+## Core Principles (From VISUAL_ROADMAP.md)
+
+- **MVP First, Polish Second:** Build functional core first, enhance later
+- **Open-Source by Default:** Use free, high-quality libraries
+- **Asset Replacement is Key:** Achieve Toca Boca look via sprite replacement
+- **User Feedback is Crucial:** Test with kids early (Week 8)

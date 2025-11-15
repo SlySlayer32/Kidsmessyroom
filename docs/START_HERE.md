@@ -1,14 +1,15 @@
 # START HERE - Quick Reference
 
-**Last Updated:** November 15, 2025
+**Last Updated:** November 15, 2025  
+**Status:** Aligned with VISUAL_ROADMAP.md (Gold Standard)
 
 ---
 
 ## 🎯 Project Core Truth
 
-> "Kid uploads original messy room image → Azure AI Vision detects all objects and creates list → App converts scene to Toca Boca style room using FluentUI Emoji library assets to replace detected objects → User selects and moves each object to digitally clean their room up."
+> "Kid uploads messy room photo → OpenAI GPT-4o detects all objects with positions → App matches objects to FluentUI Emoji sprites → Konva.js renders Toca Boca-style scene → User drags objects to cleanup zones → Track progress and celebrate completion!"
 
-**That's it. Nothing more.**
+**Source of Truth:** **VISUAL_ROADMAP.md** - The gold standard development plan.
 
 ---
 
@@ -16,180 +17,197 @@
 
 | Question | Answer | Details |
 |----------|--------|---------|
-| **What API for detection?** | Azure AI Vision | `ARCHITECTURE_LOCKED.md` |
-| **What assets to use?** | FluentUI Emoji 3D | `ICON_PACK_RESEARCH.md` |
-| **Gamification?** | No | Out of scope |
-| **Physics animations?** | No | Out of scope |
-| **Alternative APIs?** | No | Azure locked |
-| **Commission artists?** | No | FluentUI locked |
-| **Generate with AI?** | No | FluentUI locked |
+| **What API for detection?** | OpenAI GPT-4o Vision | `VISUAL_ROADMAP.md` |
+| **What canvas library?** | Konva.js (react-konva) | `VISUAL_ROADMAP.md` |
+| **What assets to use?** | FluentUI Emoji 3D (MVP) | `VISUAL_ROADMAP.md` |
+| **Timeline for MVP?** | 8 weeks | `VISUAL_ROADMAP.md` |
+| **Gamification in MVP?** | No - Phase 2 only | `VISUAL_ROADMAP.md` |
+| **Physics in MVP?** | No - Phase 2 only | `VISUAL_ROADMAP.md` |
+| **Alternative APIs?** | No - GPT-4o locked | `VISUAL_ROADMAP.md` |
+| **Custom art in MVP?** | No - Phase 2 only | `VISUAL_ROADMAP.md` |
 
 ---
 
 ## 📚 Document Hierarchy (Read in Order)
 
-### 1. Architecture (Start Here)
-- **`ARCHITECTURE_LOCKED.md`** ← **READ THIS FIRST**
-  - Final locked decisions
-  - What's in scope, what's not
-  - Technology stack
-  - Implementation priorities
+### 1. ⭐ Source of Truth
+- **`VISUAL_ROADMAP.md`** ← **READ THIS FIRST**
+  - Gold standard development plan
+  - 8-week MVP timeline with detailed tasks
+  - Technology stack decisions and reasoning
+  - Phase 2 enhancement roadmap
+  - All architectural decisions originate here
 
-### 2. Implementation Guides
-- **`ICON_PACK_RESEARCH.md`**
-  - FluentUI Emoji setup
-  - How to download and organize assets
-  - Coverage analysis
+### 2. Architecture & Implementation
+- **`ARCHITECTURE_LOCKED.md`** ← **READ THIS SECOND**
+  - Aligned with VISUAL_ROADMAP.md
+  - Consolidated architectural decisions
+  - Technology stack summary
+  - Success metrics
 
 - **`IMPLEMENTATION_GUIDE.md`**
-  - Code examples for Azure AI Vision
+  - Code examples for OpenAI GPT-4o Vision
+  - Konva.js canvas patterns
   - Asset matching algorithm
-  - Canvas rendering patterns
-  - Focus on sections relevant to locked architecture
+  - **Note:** Update examples to match VISUAL_ROADMAP.md stack
 
-- **`VISUAL_ROADMAP.md`**
-  - 5-week implementation plan
-  - Week-by-week tasks
-  - Skip gamification/physics sections
+- **`ICON_PACK_RESEARCH.md`**
+  - FluentUI Emoji setup guide
+  - Download and organization instructions
+  - Coverage analysis (92% of needed assets)
 
-### 3. Reference (Additional Context)
-- **`PROJECT_SUMMARY.md`** - Original navigation hub
-- **`QUICK_START.md`** - Week 1 guide (some sections outdated)
-- **`README.md`** - Original brainstorming notes
+### 3. Reference & Supporting Docs
+- **`PROJECT_SUMMARY.md`** - Overview and navigation
+- **`QUICK_START.md`** - Quick start guide for founders
+- **`README.md`** - Project introduction
 
 ---
 
-## 🚀 Quick Start (5 Steps)
+## 🚀 Quick Start (Following VISUAL_ROADMAP.md)
 
-### Step 1: Set Up Azure AI Vision (15 minutes)
-1. Create Azure account: https://portal.azure.com
-2. Create Computer Vision resource
-3. Copy API key and endpoint
-4. Test with curl or Postman
-5. Validate free tier (5,000 images/month)
+### Step 1: Set Up OpenAI GPT-4o API (15 minutes)
+1. Create OpenAI account: https://platform.openai.com/
+2. Add payment method and get API key
+3. Securely store key in environment variables
+4. Test with a sample image upload
+5. Cost: ~$0.01-0.03 per image
 
 ### Step 2: Download FluentUI Emoji (30 minutes)
 1. Clone: https://github.com/microsoft/fluentui-emoji
 2. Navigate to `assets/` folder
-3. Select 3D style, high contrast
-4. Copy ~50 relevant icons to project
-5. Organize into: toys/, clothing/, books/, misc/
+3. Select 3D style versions
+4. Download 50-70 high-quality 3D PNGs
+5. Organize into: toys/, clothing/, books/, furniture/
+6. Optimize PNGs for web
 
 ### Step 3: Set Up Next.js Project (20 minutes)
 ```bash
-npx create-next-app@latest kidsmessyroom --typescript --tailwind --app
-cd kidsmessyroom
-npm install zustand
+npx create-next-app@latest toca-room --typescript --tailwind
+cd toca-room
+npm install konva react-konva zustand lucide-react
 ```
 
-### Step 4: Create Core Files (1 hour)
-1. `app/api/detect/route.ts` - Azure API integration
-2. `components/ImageUpload.tsx` - Photo upload
-3. `components/GameCanvas.tsx` - Canvas renderer
-4. `lib/matching.ts` - Asset matching
-5. `public/assets.json` - Metadata
+### Step 4: Create Core Files (Following VISUAL_ROADMAP.md structure)
+1. `app/api/detect/route.ts` - OpenAI GPT-4o integration
+2. `components/ImageUpload.tsx` - Photo upload with preview
+3. `components/GameCanvas.tsx` - Konva.js Stage component
+4. `lib/matching.ts` - Asset matching algorithm
+5. `public/assets.json` - Master asset metadata with keywords
 
-### Step 5: Test & Iterate (Ongoing)
-1. Test with 10 real messy room photos
-2. Validate detection accuracy (target: 80%+)
-3. Validate matching accuracy (target: 85%+)
-4. Iterate on matching keywords
+### Step 5: Follow 8-Week Timeline
+See **VISUAL_ROADMAP.md** for detailed week-by-week tasks:
+- Week 1-2: Foundations & Asset Pipeline
+- Week 3-4: AI Vision & Object Detection
+- Week 5-6: Scene Reconstruction & Matching
+- Week 7: Interaction & Gameplay
+- Week 8: Testing & Deployment
 
 ---
 
 ## 🔧 Common Tasks
 
 ### Add a New Object Type
-1. Find matching FluentUI Emoji
+1. Find matching FluentUI Emoji 3D asset
 2. Add PNG to `public/assets/[category]/`
-3. Update `public/assets.json`:
+3. Update `public/assets.json` with comprehensive keywords:
 ```json
 {
   "new_object": {
+    "id": "new_object",
     "file": "/assets/toys/new_object.png",
-    "fluent_emoji": "new-object",
-    "category": "toys",
-    "keywords": ["keyword1", "keyword2"],
-    "size": "medium"
+    "keywords": ["keyword1", "keyword2", "keyword3"],
+    "category": "toys"
   }
 }
 ```
 
 ### Improve Matching Accuracy
-1. Review unmatched objects in logs
-2. Add more keywords to `assets.json`
-3. Add category fallbacks
-4. Test with more photos
+1. Review unmatched objects from GPT-4o responses
+2. Add more synonyms and keywords to `assets.json`
+3. Implement fallback logic (generic category icons)
+4. Test with diverse room photos
 
-### Update Azure API Integration
+### Update OpenAI API Integration
 1. Edit `app/api/detect/route.ts`
-2. Adjust `visualFeatures` parameter
-3. Parse response fields
-4. Test with sample images
+2. Refine the prompt for better object detection
+3. Parse JSON response for object names and bounding boxes
+4. Test with sample images and adjust prompt as needed
 
 ---
 
 ## ⚠️ If Someone Asks...
 
 ### "Can we add scoring/gamification?"
-**Answer:** Not in MVP. Can be added in Phase 2 after MVP launch.
+**Answer:** Not in MVP (Week 1-8). Phase 2 enhancement. See VISUAL_ROADMAP.md Phase 2.
 
 ### "Can we add physics/sound/particles?"
-**Answer:** Not in MVP. Can be added in Phase 2 after MVP launch.
+**Answer:** Not in MVP (Week 1-8). Phase 2 enhancement. See VISUAL_ROADMAP.md Phase 2.
 
-### "Can we use Claude/Gemini instead?"
-**Answer:** No, Azure AI Vision is locked for highest quality.
+### "Can we use Azure/Claude/Gemini instead of GPT-4o?"
+**Answer:** No, OpenAI GPT-4o is locked per VISUAL_ROADMAP.md for accuracy and simplicity.
 
-### "Can we generate custom assets with DALL-E?"
-**Answer:** No, FluentUI Emoji is locked for consistency.
+### "Can we generate custom assets with DALL-E for MVP?"
+**Answer:** No, FluentUI Emoji is MVP choice. Custom art is Phase 2. See VISUAL_ROADMAP.md.
+
+### "Can we use raw Canvas instead of Konva.js?"
+**Answer:** No, Konva.js is locked per VISUAL_ROADMAP.md for React integration and ease.
 
 ### "This doc conflicts with another doc"
-**Answer:** `ARCHITECTURE_LOCKED.md` is source of truth.
+**Answer:** VISUAL_ROADMAP.md is the gold standard source of truth.
 
 ---
 
 ## 📞 Getting Help
 
 ### For Developers
-1. Check `ARCHITECTURE_LOCKED.md` first
-2. Check `.github/copilot-instructions.md` for AI guidance
+1. Check **`VISUAL_ROADMAP.md`** first - Gold standard plan
+2. Check `ARCHITECTURE_LOCKED.md` for consolidated decisions
 3. Reference `IMPLEMENTATION_GUIDE.md` for code patterns
-4. Ask @SlySlayer32 for clarification
+4. Check `.github/instructions/copilot-instructions.md` for AI guidance
+5. Ask @SlySlayer32 for clarification
 
 ### For AI Agents
-1. Read `.github/copilot-instructions.md` thoroughly
-2. Adhere to locked architecture decisions
-3. Do not suggest out-of-scope features
-4. Reference code patterns from `IMPLEMENTATION_GUIDE.md`
+1. Read **`VISUAL_ROADMAP.md`** thoroughly - This is the source of truth
+2. Read `.github/instructions/copilot-instructions.md` for agent-specific guidance
+3. Adhere to decisions in VISUAL_ROADMAP.md and ARCHITECTURE_LOCKED.md
+4. Do not suggest features outside Phase 1 MVP scope
+5. Reference code patterns from `IMPLEMENTATION_GUIDE.md`
 
 ---
 
-## ✅ Success Checklist
+## ✅ Success Checklist (8-Week MVP)
 
-Before considering MVP complete:
+Before considering MVP complete (Week 8):
 
-- [ ] Azure AI Vision integrated and tested
-- [ ] 50+ FluentUI Emoji assets organized
+- [ ] OpenAI GPT-4o API integrated and tested
+- [ ] 50-70 FluentUI Emoji 3D assets downloaded and organized
+- [ ] Master asset metadata file (assets.json) with comprehensive keywords
 - [ ] Asset matching algorithm working (85%+ accuracy)
-- [ ] Canvas rendering Toca Boca style background
-- [ ] Drag & drop interaction functional
-- [ ] Progress counter showing X/Y cleaned
+- [ ] Konva.js canvas rendering Toca Boca-style background
+- [ ] Drag & drop interaction using Konva.js draggable
+- [ ] Cleanup zones defined with visual feedback
+- [ ] Progress UI showing "Items Cleaned: X / Y"
+- [ ] Beta tested with 3-5 kids in target age range
+- [ ] Addressed critical feedback from user testing
 - [ ] Tested with 10+ real messy room photos
-- [ ] Works on desktop and mobile browsers
-- [ ] Deployed to Vercel
+- [ ] Works on desktop and mobile browsers (responsive)
+- [ ] Deployed to Vercel with production config
+- [ ] 🎉 MVP LAUNCHED!
 
 ---
 
-## 🎯 Timeline
+## 🎯 Timeline (From VISUAL_ROADMAP.md)
 
-**Week 1:** Azure setup + FluentUI download  
-**Week 2:** Detection pipeline  
-**Week 3:** Matching + rendering  
-**Week 4:** Drag & drop interaction  
-**Week 5:** Testing + deployment  
+**Week 1-2:** Foundations & Asset Pipeline  
+**Week 3-4:** AI Vision & Object Detection  
+**Week 5-6:** Scene Reconstruction & Matching  
+**Week 7:** Interaction & Core Gameplay Loop  
+**Week 8:** User Testing, Polish & Deployment  
 
-**Total:** 5 weeks to MVP
+**Total:** 8 weeks to MVP launch
+
+**Phase 2 (Post-MVP):** Custom art, physics, sound, gamification
 
 ---
 
-**Questions? Start with `ARCHITECTURE_LOCKED.md`.**
+**Questions? Start with `VISUAL_ROADMAP.md` - The Gold Standard Plan.**
