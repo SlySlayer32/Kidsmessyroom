@@ -168,6 +168,149 @@
             font-size: 0.9em;
             margin-top: 10px;
         }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            position: relative;
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .modal-header h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+        
+        .modal-close:hover {
+            color: #333;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+        }
+        
+        .modal-asset-preview {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-asset-preview img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+        
+        .modal-asset-emoji {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+        
+        .modal-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .modal-info-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .modal-info-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .modal-info-label {
+            font-weight: bold;
+            color: #667eea;
+            min-width: 100px;
+        }
+        
+        .modal-info-value {
+            color: #333;
+            flex: 1;
+        }
+        
+        .modal-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .modal-keyword-tag {
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -219,6 +362,44 @@
                     View Original Repository →
                 </a>
             </p>
+        </div>
+    </div>
+    
+    <!-- Modal for asset details -->
+    <div id="assetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Asset Details</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-asset-preview">
+                    <img id="modalImage" src="" alt="">
+                    <div class="modal-asset-emoji" id="modalEmoji"></div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-info-row">
+                        <span class="modal-info-label">ID:</span>
+                        <span class="modal-info-value" id="modalId"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="modal-info-label">File:</span>
+                        <span class="modal-info-value" id="modalFile"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="modal-info-label">Category:</span>
+                        <span class="modal-info-value" id="modalCategory"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="modal-info-label">Size:</span>
+                        <span class="modal-info-value" id="modalSize"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="modal-info-label">Keywords:</span>
+                        <div class="modal-keywords" id="modalKeywords"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -291,7 +472,7 @@
                     `;
                     
                     card.onclick = () => {
-                        alert(`Asset: ${asset.name}\nID: ${id}\nFile: ${asset.file}\nSize: ${asset.size}\nKeywords: ${asset.keywords.join(', ')}`);
+                        showAssetModal(id, asset, categoryKey);
                     };
                     
                     grid.appendChild(card);
@@ -306,6 +487,49 @@
                 container.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No assets found matching your search.</p>';
             }
         }
+        
+        function showAssetModal(id, asset, category) {
+            // Populate modal with asset data
+            document.getElementById('modalTitle').textContent = asset.name;
+            document.getElementById('modalImage').src = asset.file;
+            document.getElementById('modalImage').alt = asset.name;
+            document.getElementById('modalEmoji').textContent = asset.emoji;
+            document.getElementById('modalId').textContent = id;
+            document.getElementById('modalFile').textContent = asset.file;
+            document.getElementById('modalCategory').textContent = category;
+            document.getElementById('modalSize').textContent = asset.size;
+            
+            // Populate keywords as tags
+            const keywordsContainer = document.getElementById('modalKeywords');
+            keywordsContainer.innerHTML = '';
+            asset.keywords.forEach(keyword => {
+                const tag = document.createElement('span');
+                tag.className = 'modal-keyword-tag';
+                tag.textContent = keyword;
+                keywordsContainer.appendChild(tag);
+            });
+            
+            // Show modal
+            document.getElementById('assetModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('assetModal').classList.remove('show');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('assetModal').addEventListener('click', (e) => {
+            if (e.target.id === 'assetModal') {
+                closeModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
         
         function setupSearch(assets) {
             const searchBox = document.getElementById('search');

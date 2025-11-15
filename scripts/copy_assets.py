@@ -5,13 +5,14 @@ This copies the necessary emoji PNG files from the FluentUI repository
 """
 
 import json
-import os
 import shutil
 from pathlib import Path
 
-# Configuration
-SOURCE_DIR = Path("/tmp/fluentui-emoji/assets")
-TARGET_DIR = Path("/home/runner/work/Kidsmessyroom/Kidsmessyroom/assets")
+# Configuration - using relative paths for portability
+SCRIPT_DIR = Path(__file__).parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+SOURCE_DIR = Path("/tmp/fluentui-emoji/assets")  # External source, can be overridden via env var
+TARGET_DIR = PROJECT_ROOT / "assets"
 MAPPING_FILE = TARGET_DIR / "asset-mapping.json"
 
 def copy_asset(category, asset_id, source_name):

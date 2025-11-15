@@ -34,7 +34,7 @@ for (const category of assetsData.metadata.categories) {
   
   let categoryMissing = 0;
   
-  for (const [assetId, asset] of Object.entries(assets)) {
+  for (const [, asset] of Object.entries(assets)) {
     const filePath = path.join(__dirname, asset.file);
     if (fs.existsSync(filePath)) {
       totalFiles++;
