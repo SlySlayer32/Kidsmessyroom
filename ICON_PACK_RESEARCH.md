@@ -803,7 +803,7 @@ Use open source icons when:
 
 ### Primary Sources
 - **FluentUI Emoji:** https://github.com/microsoft/fluentui-emoji
-- **Icon Archive (FluentUI 3D):** https://www.iconarchive.com/show/fluentui-emoji-3d-icons-by-microsoft.html
+- **Icon Archive (FluentUI 3D):** https://www.iconarchive.com/show/fluentui-emoji-3d-icons-by-microsoft.5.html
 - **Kenney.nl:** https://kenney.nl/assets
 - **Game-icons.net:** https://game-icons.net/
 - **React Kawaii:** https://github.com/elizabetdev/react-kawaii
