@@ -19,6 +19,37 @@
 
 ---
 
+## 🎨 Asset Creation Approach: Two Options
+
+### Option 1: DIY Automated (Recommended - Save $745!)
+
+**Use AI tools to generate assets automatically** - See **[DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)** for complete guide.
+
+- ✅ **Cost:** $5-10 total (DALL-E API)
+- ✅ **Time:** 50 minutes to generate 50 assets
+- ✅ **Control:** Full automation with GitHub Actions
+- ✅ **Scalability:** $0.10 per additional asset
+- ✅ **Tools:** OpenAI DALL-E, Stable Diffusion, or free SVG libraries
+
+**Quick setup:**
+```bash
+npm install openai sharp
+node scripts/generate-assets.js
+```
+
+### Option 2: Commission Artist (Original Approach)
+
+**Hire a Toca Boca-style artist on Fiverr** - See sections below for details.
+
+- 💰 **Cost:** $750-1,500 total
+- ⏱️ **Time:** 2-4 weeks wait
+- 🎨 **Quality:** Professional, hand-crafted
+- 📦 **Delivery:** Batch delivery with revisions
+
+**Best for:** If you prefer human-crafted assets and have budget.
+
+---
+
 ## ✅ What You Need to Do This Week (Week 1)
 
 ### Monday-Tuesday: Validate the Approach
@@ -76,9 +107,44 @@ From your 10 test photos, create a spreadsheet:
 
 ---
 
-### Friday: Find Your Artist
+### Friday: Choose Your Asset Creation Method
 
-**Task 3: Hire a Toca Boca-Style Artist (3 hours)**
+**Task 3A: DIY Automated Setup (2 hours) - RECOMMENDED**
+
+If you chose the DIY automated approach:
+
+1. **Set up API keys:**
+   - OpenAI DALL-E: https://platform.openai.com/api-keys
+   - Get $5 free credit (enough for 50 assets!)
+   - Or use Replicate + Stable Diffusion: $0.50 total
+
+2. **Install tools:**
+   ```bash
+   npm install openai sharp dotenv
+   mkdir -p scripts public/assets/{toys,clothing,books,misc}
+   ```
+
+3. **Copy generation script:**
+   - Download from `DIY_AUTOMATED_APPROACH.md`
+   - Or use the GitHub Actions workflow
+
+4. **Generate test assets:**
+   ```bash
+   node scripts/generate-assets.js "teddy bear,toy car,book"
+   ```
+
+5. **Verify quality:**
+   - Check generated images in `public/assets/`
+   - Ensure kawaii style is consistent
+   - Run consistency checker
+
+**See [DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md) for complete guide.**
+
+---
+
+**Task 3B: Hire a Toca Boca-Style Artist (3 hours) - ALTERNATIVE**
+
+If you chose the artist commission approach:
 
 **Where to find them:**
 1. **Fiverr** (recommended): https://fiverr.com
@@ -228,7 +294,30 @@ I have complete technical documentation ready (link to your GitHub repo).
 
 ## 💰 Budget Planning
 
-### Minimum Viable Budget: $1,500
+### Option 1: DIY Automated Assets (RECOMMENDED)
+
+**Minimum Viable Budget: $755**
+
+```
+Asset Creation:    $5-10   (DALL-E API for 50 sprites) ✨ HUGE SAVINGS!
+Domain & Hosting:  $50     (Vercel free tier + domain)
+API Credits:       $50     (Claude API for testing)
+Marketing:         $100    (landing page, ads)
+Misc:              $50     (sounds, tools, etc.)
+-----------------------------------
+Total:             $755
+```
+
+**If you code it yourself:** $755 total  
+**If you hire developer:** $755 + $3,000-5,000 = **$3,755-5,755 total**
+
+**💡 Savings vs Artist Commission: $745!**
+
+---
+
+### Option 2: Commission Artist (Original Approach)
+
+**Minimum Viable Budget: $1,500**
 
 ```
 Asset Creation:    $750    (50 sprites via Fiverr package deal)
@@ -240,8 +329,7 @@ Misc:              $50     (sounds, tools, etc.)
 Total:             $1,500
 ```
 
-**If you code it yourself:** $1,500 total
-
+**If you code it yourself:** $1,500 total  
 **If you hire developer:** $1,500 + $3,000-5,000 = **$4,500-6,500 total**
 
 ---

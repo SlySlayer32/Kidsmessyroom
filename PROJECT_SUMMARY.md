@@ -23,13 +23,40 @@ What you'll learn:
 - ✅ How to validate the concept in 2 hours
 - ✅ Testing object detection with Claude API
 - ✅ Creating your asset list (top 50 objects)
-- ✅ Finding and hiring Toca Boca-style artists
+- ✅ **NEW:** DIY automated asset generation ($5-10 vs $750!)
+- ✅ Alternative: Finding and hiring Toca Boca-style artists
 - ✅ DIY vs hire developer decision framework
-- ✅ Budget planning ($1,500 - $6,500)
+- ✅ Budget planning ($755 - $5,755 with DIY approach)
 - ✅ Week 1 checklist to complete
 
 **Time to read:** 30 minutes  
 **Time to complete Week 1:** 8-10 hours
+
+---
+
+### 🆕 **[DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)** - Cost-Optimized Strategy
+**Plugin-based asset generation using AI and automation**
+
+**Save $745!** Use DALL-E, Stable Diffusion, or free SVG libraries instead of commissioning artists.
+
+What's included:
+- ✅ AI image generation APIs (DALL-E, Stable Diffusion)
+- ✅ GitHub Actions automation workflows
+- ✅ Complete asset generation scripts (Node.js)
+- ✅ Image consistency checker
+- ✅ Batch processing pipelines
+- ✅ Quality control automation
+- ✅ Prompt engineering guide
+- ✅ Community contribution system
+
+**Key Benefits:**
+- 💰 **Cost:** $5-10 (vs $750 for artist)
+- ⚡ **Speed:** 50 minutes (vs 2-4 weeks)
+- 🎯 **Control:** Full automation
+- 📈 **Scalability:** $0.10 per additional asset
+
+**Time to read:** 45 minutes  
+**Time to implement:** 30 minutes setup + 20 minutes generation
 
 ---
 
@@ -177,14 +204,14 @@ Detailed breakdown:
 #### Week 1: Research & Planning
 - Technical validation (test detection)
 - Asset research (frequency analysis)
-- Artist search (Fiverr)
-- **Deliverable:** 50-asset list + artist hired
+- **NEW:** Setup DIY automated asset generation OR artist search (Fiverr)
+- **Deliverable:** 50-asset list + generation pipeline OR artist hired
 
 #### Week 2: Foundation
-- Commission first assets
+- **NEW (DIY):** Generate all 50 assets with AI (50 minutes!) OR Commission first assets from artist
 - Setup dev environment
 - Build upload UI
-- **Deliverable:** 5 sample assets + working upload
+- **Deliverable:** 50 complete assets + working upload (DIY) OR 5 sample assets + upload (Artist)
 
 #### Week 3: Core Detection
 - Claude API integration
@@ -274,7 +301,22 @@ Professional games like Toca Boca, The Sims, and Animal Crossing use pre-made as
 
 ## 💰 Budget Summary
 
-### Option 1: DIY Development
+### 🆕 Option 1A: DIY Development + DIY Assets (RECOMMENDED)
+**Total:** $755 one-time + $115/month
+
+Breakdown:
+- **Asset creation: $5-10 (DALL-E API) 💰 SAVE $745!**
+- Domain & hosting: $50
+- API testing: $50
+- Marketing: $100
+- Tools & misc: $50
+- Monthly operating: $115 (Claude API, hosting, database)
+
+**Best for:** Cost-conscious technical founders
+
+---
+
+### Option 1B: DIY Development + Commission Assets
 **Total:** $1,500 one-time + $115/month
 
 Breakdown:
@@ -283,13 +325,28 @@ Breakdown:
 - API testing: $50
 - Marketing: $100
 - Tools & misc: $50
-- Monthly operating: $115 (Claude API, hosting, database)
+- Monthly operating: $115
 
-**Best for:** Technical founders or those with time to learn
+**Best for:** Technical founders who prefer professional artist work
 
 ---
 
-### Option 2: Hire Developer
+### Option 2A: Hire Developer + DIY Assets (COST-OPTIMIZED)
+**Total:** $3,755-5,755 one-time + $115/month
+
+Breakdown:
+- **Asset creation: $5-10 (DALL-E API)**
+- Development: $3,000-5,000 (Upwork/freelancer)
+- Domain & hosting: $50
+- Marketing: $200
+- Tools & misc: $100
+- Monthly operating: $115
+
+**Best for:** Non-technical founders wanting to minimize costs
+
+---
+
+### Option 2B: Hire Developer + Commission Assets (ORIGINAL)
 **Total:** $4,500-6,500 one-time + $115/month
 
 Breakdown:
@@ -300,7 +357,7 @@ Breakdown:
 - Tools & misc: $100
 - Monthly operating: $115
 
-**Best for:** Non-technical founders with budget
+**Best for:** Non-technical founders with full budget
 
 ---
 
@@ -348,6 +405,7 @@ After costs: ~$8K-12K profit
 
 ### AI/ML
 - **Detection:** Claude Vision API
+- **Asset Generation (DIY):** DALL-E 3 or Stable Diffusion
 - **Matching:** Custom algorithm
 
 ### DevOps
