@@ -58,7 +58,6 @@ toca-room/
 │   ├── ImageUpload.tsx           # Photo upload component
 │   ├── GameCanvas.tsx            # Konva.js Stage component
 │   └── ProgressTracker.tsx       # Progress UI
-│   └── ProgressTracker.tsx          # Score/progress display
 ├── lib/
 │   ├── detection.ts                 # Object detection logic
 │   ├── matching.ts                  # Asset matching algorithm
