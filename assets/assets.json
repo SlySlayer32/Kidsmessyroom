@@ -1,0 +1,519 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "source": "FluentUI Emoji 3D by Microsoft",
+    "license": "MIT License",
+    "license_url": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "total_assets": 55,
+    "categories": ["toys", "clothing", "books", "misc", "fallback"],
+    "created": "2025-11-15",
+    "description": "Asset library for Kids Messy Room cleanup game, featuring kawaii-style 3D emoji from Microsoft's FluentUI Emoji collection"
+  },
+  "assets": {
+    "toys": {
+      "teddy_bear": {
+        "name": "Teddy Bear",
+        "file": "assets/toys/teddy_bear.png",
+        "category": "toys",
+        "emoji": "🧸",
+        "keywords": ["teddy", "bear", "stuffed animal", "plush", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "soccer_ball": {
+        "name": "Soccer Ball",
+        "file": "assets/toys/soccer_ball.png",
+        "category": "toys",
+        "emoji": "⚽",
+        "keywords": ["ball", "soccer", "football", "sport", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "basketball": {
+        "name": "Basketball",
+        "file": "assets/toys/basketball.png",
+        "category": "toys",
+        "emoji": "🏀",
+        "keywords": ["ball", "basketball", "sport", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "baseball": {
+        "name": "Baseball",
+        "file": "assets/toys/baseball.png",
+        "category": "toys",
+        "emoji": "⚾",
+        "keywords": ["ball", "baseball", "sport", "toy"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "toy_car": {
+        "name": "Toy Car",
+        "file": "assets/toys/toy_car.png",
+        "category": "toys",
+        "emoji": "🚗",
+        "keywords": ["car", "vehicle", "toy car", "automobile"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "police_car": {
+        "name": "Police Car",
+        "file": "assets/toys/police_car.png",
+        "category": "toys",
+        "emoji": "🚓",
+        "keywords": ["car", "police", "vehicle", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "fire_engine": {
+        "name": "Fire Engine",
+        "file": "assets/toys/fire_engine.png",
+        "category": "toys",
+        "emoji": "🚒",
+        "keywords": ["fire truck", "truck", "vehicle", "toy"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      },
+      "robot": {
+        "name": "Robot",
+        "file": "assets/toys/robot.png",
+        "category": "toys",
+        "emoji": "🤖",
+        "keywords": ["robot", "toy", "machine"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "dinosaur": {
+        "name": "Dinosaur",
+        "file": "assets/toys/dinosaur.png",
+        "category": "toys",
+        "emoji": "🦕",
+        "keywords": ["dinosaur", "sauropod", "toy", "prehistoric"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      },
+      "carousel_horse": {
+        "name": "Carousel Horse",
+        "file": "assets/toys/carousel_horse.png",
+        "category": "toys",
+        "emoji": "🎠",
+        "keywords": ["horse", "carousel", "toy", "ride"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      },
+      "kite": {
+        "name": "Kite",
+        "file": "assets/toys/kite.png",
+        "category": "toys",
+        "emoji": "🪁",
+        "keywords": ["kite", "toy", "flying"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "puzzle": {
+        "name": "Puzzle Piece",
+        "file": "assets/toys/puzzle.png",
+        "category": "toys",
+        "emoji": "🧩",
+        "keywords": ["puzzle", "piece", "game", "toy"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "teddy_bear_2": {
+        "name": "Stuffed Animal",
+        "file": "assets/toys/teddy_bear_2.png",
+        "category": "toys",
+        "emoji": "🧸",
+        "keywords": ["stuffed", "animal", "plush", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "yo_yo": {
+        "name": "Yo-Yo",
+        "file": "assets/toys/yo_yo.png",
+        "category": "toys",
+        "emoji": "🪀",
+        "keywords": ["yoyo", "yo-yo", "toy"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "doll": {
+        "name": "Doll",
+        "file": "assets/toys/doll.png",
+        "category": "toys",
+        "emoji": "🎎",
+        "keywords": ["doll", "toy", "figurine"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "nesting_dolls": {
+        "name": "Nesting Dolls",
+        "file": "assets/toys/nesting_dolls.png",
+        "category": "toys",
+        "emoji": "🪆",
+        "keywords": ["dolls", "nesting", "toy", "matryoshka"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "toy_blocks": {
+        "name": "Building Blocks",
+        "file": "assets/toys/toy_blocks.png",
+        "category": "toys",
+        "emoji": "🧱",
+        "keywords": ["blocks", "building", "toy", "lego", "brick"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "artist_palette": {
+        "name": "Art Supplies",
+        "file": "assets/toys/artist_palette.png",
+        "category": "toys",
+        "emoji": "🎨",
+        "keywords": ["art", "paint", "supplies", "toy", "creative"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "video_game": {
+        "name": "Video Game",
+        "file": "assets/toys/video_game.png",
+        "category": "toys",
+        "emoji": "🎮",
+        "keywords": ["game", "video game", "controller", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "toy_drum": {
+        "name": "Musical Toy",
+        "file": "assets/toys/toy_drum.png",
+        "category": "toys",
+        "emoji": "🥁",
+        "keywords": ["drum", "music", "instrument", "toy"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      }
+    },
+    "clothing": {
+      "tshirt": {
+        "name": "T-Shirt",
+        "file": "assets/clothing/tshirt.png",
+        "category": "clothing",
+        "emoji": "👕",
+        "keywords": ["shirt", "tshirt", "t-shirt", "clothing", "clothes"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "jeans": {
+        "name": "Jeans",
+        "file": "assets/clothing/jeans.png",
+        "category": "clothing",
+        "emoji": "👖",
+        "keywords": ["pants", "jeans", "trousers", "clothing"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "dress": {
+        "name": "Dress",
+        "file": "assets/clothing/dress.png",
+        "category": "clothing",
+        "emoji": "👗",
+        "keywords": ["dress", "clothing", "clothes"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "coat": {
+        "name": "Coat",
+        "file": "assets/clothing/coat.png",
+        "category": "clothing",
+        "emoji": "🧥",
+        "keywords": ["coat", "jacket", "clothing"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "socks": {
+        "name": "Socks",
+        "file": "assets/clothing/socks.png",
+        "category": "clothing",
+        "emoji": "🧦",
+        "keywords": ["socks", "clothing", "clothes"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "running_shoe": {
+        "name": "Shoes",
+        "file": "assets/clothing/running_shoe.png",
+        "category": "clothing",
+        "emoji": "👟",
+        "keywords": ["shoes", "sneakers", "footwear", "clothing"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "sandal": {
+        "name": "Sandals",
+        "file": "assets/clothing/sandal.png",
+        "category": "clothing",
+        "emoji": "🩴",
+        "keywords": ["sandals", "flip flops", "footwear", "clothing"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "womans_hat": {
+        "name": "Hat",
+        "file": "assets/clothing/womans_hat.png",
+        "category": "clothing",
+        "emoji": "👒",
+        "keywords": ["hat", "cap", "clothing", "accessory"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "scarf": {
+        "name": "Scarf",
+        "file": "assets/clothing/scarf.png",
+        "category": "clothing",
+        "emoji": "🧣",
+        "keywords": ["scarf", "clothing", "accessory"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "backpack": {
+        "name": "Backpack",
+        "file": "assets/clothing/backpack.png",
+        "category": "clothing",
+        "emoji": "🎒",
+        "keywords": ["backpack", "bag", "school", "accessory"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      }
+    },
+    "books": {
+      "closed_book": {
+        "name": "Book (Closed)",
+        "file": "assets/books/closed_book.png",
+        "category": "books",
+        "emoji": "📕",
+        "keywords": ["book", "closed", "reading"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "open_book": {
+        "name": "Book (Open)",
+        "file": "assets/books/open_book.png",
+        "category": "books",
+        "emoji": "📖",
+        "keywords": ["book", "open", "reading"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "notebook": {
+        "name": "Notebook",
+        "file": "assets/books/notebook.png",
+        "category": "books",
+        "emoji": "📓",
+        "keywords": ["notebook", "notes", "writing"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "notebook_decorative": {
+        "name": "Decorated Notebook",
+        "file": "assets/books/notebook_decorative.png",
+        "category": "books",
+        "emoji": "📔",
+        "keywords": ["notebook", "decorated", "journal"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "ledger": {
+        "name": "Ledger",
+        "file": "assets/books/ledger.png",
+        "category": "books",
+        "emoji": "📒",
+        "keywords": ["ledger", "notebook", "book"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "page_facing_up": {
+        "name": "Papers",
+        "file": "assets/books/page_facing_up.png",
+        "category": "books",
+        "emoji": "📄",
+        "keywords": ["paper", "papers", "document", "sheet"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "newspaper": {
+        "name": "Newspaper",
+        "file": "assets/books/newspaper.png",
+        "category": "books",
+        "emoji": "📰",
+        "keywords": ["newspaper", "news", "paper", "magazine"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      },
+      "bookmark": {
+        "name": "Bookmark",
+        "file": "assets/books/bookmark.png",
+        "category": "books",
+        "emoji": "🔖",
+        "keywords": ["bookmark", "book", "reading"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      }
+    },
+    "misc": {
+      "pillow": {
+        "name": "Pillow",
+        "file": "assets/misc/pillow.png",
+        "category": "misc",
+        "emoji": "🛏️",
+        "keywords": ["pillow", "cushion", "bed", "sleep"],
+        "size": "large",
+        "source": "FluentUI Emoji 3D"
+      },
+      "bottle": {
+        "name": "Water Bottle",
+        "file": "assets/misc/bottle.png",
+        "category": "misc",
+        "emoji": "🍼",
+        "keywords": ["bottle", "water bottle", "drink"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "cup": {
+        "name": "Cup",
+        "file": "assets/misc/cup.png",
+        "category": "misc",
+        "emoji": "☕",
+        "keywords": ["cup", "mug", "drink", "beverage"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "fork_and_knife": {
+        "name": "Plate",
+        "file": "assets/misc/fork_and_knife.png",
+        "category": "misc",
+        "emoji": "🍽️",
+        "keywords": ["plate", "dish", "food", "fork", "knife"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "package": {
+        "name": "Box",
+        "file": "assets/misc/package.png",
+        "category": "misc",
+        "emoji": "📦",
+        "keywords": ["box", "package", "container"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "wrapped_gift": {
+        "name": "Wrapped Gift",
+        "file": "assets/misc/wrapped_gift.png",
+        "category": "misc",
+        "emoji": "🎁",
+        "keywords": ["gift", "present", "wrapped", "box"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "scissors": {
+        "name": "Scissors",
+        "file": "assets/misc/scissors.png",
+        "category": "misc",
+        "emoji": "✂️",
+        "keywords": ["scissors", "cut", "tool"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "comb": {
+        "name": "Comb",
+        "file": "assets/misc/comb.png",
+        "category": "misc",
+        "emoji": "🖌️",
+        "keywords": ["comb", "brush", "hair", "hairbrush"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "sunglasses": {
+        "name": "Sunglasses",
+        "file": "assets/misc/sunglasses.png",
+        "category": "misc",
+        "emoji": "🕶️",
+        "keywords": ["sunglasses", "glasses", "shades", "accessory"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "mobile_phone": {
+        "name": "Phone",
+        "file": "assets/misc/mobile_phone.png",
+        "category": "misc",
+        "emoji": "📱",
+        "keywords": ["phone", "mobile", "cellphone", "device"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "battery": {
+        "name": "Battery/Charger",
+        "file": "assets/misc/battery.png",
+        "category": "misc",
+        "emoji": "🔋",
+        "keywords": ["battery", "charger", "power", "cable"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      },
+      "flashlight": {
+        "name": "Flashlight",
+        "file": "assets/misc/flashlight.png",
+        "category": "misc",
+        "emoji": "🔦",
+        "keywords": ["flashlight", "torch", "light"],
+        "size": "small",
+        "source": "FluentUI Emoji 3D"
+      }
+    },
+    "fallback": {
+      "generic_toy": {
+        "name": "Generic Toy",
+        "file": "assets/fallback/generic_toy.png",
+        "category": "fallback",
+        "emoji": "🎁",
+        "keywords": ["generic", "toy", "misc", "unknown"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "generic_clothing": {
+        "name": "Generic Clothing",
+        "file": "assets/fallback/generic_clothing.png",
+        "category": "fallback",
+        "emoji": "👕",
+        "keywords": ["generic", "clothing", "clothes", "unknown"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "generic_book": {
+        "name": "Generic Book",
+        "file": "assets/fallback/generic_book.png",
+        "category": "fallback",
+        "emoji": "📚",
+        "keywords": ["generic", "book", "books", "unknown"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "generic_misc": {
+        "name": "Generic Item",
+        "file": "assets/fallback/generic_misc.png",
+        "category": "fallback",
+        "emoji": "📦",
+        "keywords": ["generic", "misc", "item", "unknown"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      },
+      "mystery_object": {
+        "name": "Mystery Object",
+        "file": "assets/fallback/mystery_object.png",
+        "category": "fallback",
+        "emoji": "❓",
+        "keywords": ["mystery", "unknown", "question", "misc"],
+        "size": "medium",
+        "source": "FluentUI Emoji 3D"
+      }
+    }
+  }
+}
