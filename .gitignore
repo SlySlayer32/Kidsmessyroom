@@ -48,3 +48,10 @@ Thumbs.db
 # Cache
 .cache/
 .parcel-cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
