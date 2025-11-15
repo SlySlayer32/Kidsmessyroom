@@ -1,0 +1,67 @@
+{
+  "toys": [
+    { "id": "teddy_bear", "name": "Teddy Bear", "emoji": "🧸", "source": "Teddy bear", "keywords": ["teddy", "bear", "stuffed animal", "plush", "toy"] },
+    { "id": "soccer_ball", "name": "Soccer Ball", "emoji": "⚽", "source": "Soccer ball", "keywords": ["ball", "soccer", "football", "sport", "toy"] },
+    { "id": "basketball", "name": "Basketball", "emoji": "🏀", "source": "Basketball", "keywords": ["ball", "basketball", "sport", "toy"] },
+    { "id": "baseball", "name": "Baseball", "emoji": "⚾", "source": "Baseball", "keywords": ["ball", "baseball", "sport", "toy"] },
+    { "id": "toy_car", "name": "Toy Car", "emoji": "🚗", "source": "Automobile", "keywords": ["car", "vehicle", "toy car", "automobile"] },
+    { "id": "police_car", "name": "Police Car", "emoji": "🚓", "source": "Police car", "keywords": ["car", "police", "vehicle", "toy"] },
+    { "id": "fire_engine", "name": "Fire Engine", "emoji": "🚒", "source": "Fire engine", "keywords": ["fire truck", "truck", "vehicle", "toy"] },
+    { "id": "robot", "name": "Robot", "emoji": "🤖", "source": "Robot", "keywords": ["robot", "toy", "machine"] },
+    { "id": "dinosaur", "name": "Dinosaur", "emoji": "🦕", "source": "Sauropod", "keywords": ["dinosaur", "sauropod", "toy", "prehistoric"] },
+    { "id": "carousel_horse", "name": "Carousel Horse", "emoji": "🎠", "source": "Carousel horse", "keywords": ["horse", "carousel", "toy", "ride"] },
+    { "id": "kite", "name": "Kite", "emoji": "🪁", "source": "Kite", "keywords": ["kite", "toy", "flying"] },
+    { "id": "puzzle", "name": "Puzzle Piece", "emoji": "🧩", "source": "Puzzle piece", "keywords": ["puzzle", "piece", "game", "toy"] },
+    { "id": "teddy_bear_2", "name": "Stuffed Animal", "emoji": "🧸", "source": "Teddy bear", "keywords": ["stuffed", "animal", "plush", "toy"] },
+    { "id": "yo_yo", "name": "Yo-Yo", "emoji": "🪀", "source": "Yo-yo", "keywords": ["yoyo", "yo-yo", "toy"] },
+    { "id": "doll", "name": "Doll", "emoji": "🎎", "source": "Japanese dolls", "keywords": ["doll", "toy", "figurine"] },
+    { "id": "nesting_dolls", "name": "Nesting Dolls", "emoji": "🪆", "source": "Nesting dolls", "keywords": ["dolls", "nesting", "toy", "matryoshka"] },
+    { "id": "toy_blocks", "name": "Building Blocks", "emoji": "🧱", "source": "Brick", "keywords": ["blocks", "building", "toy", "lego", "brick"] },
+    { "id": "artist_palette", "name": "Art Supplies", "emoji": "🎨", "source": "Artist palette", "keywords": ["art", "paint", "supplies", "toy", "creative"] },
+    { "id": "video_game", "name": "Video Game", "emoji": "🎮", "source": "Video game", "keywords": ["game", "video game", "controller", "toy"] },
+    { "id": "toy_drum", "name": "Musical Toy", "emoji": "🥁", "source": "Drum", "keywords": ["drum", "music", "instrument", "toy"] }
+  ],
+  "clothing": [
+    { "id": "tshirt", "name": "T-Shirt", "emoji": "👕", "source": "T-shirt", "keywords": ["shirt", "tshirt", "t-shirt", "clothing", "clothes"] },
+    { "id": "jeans", "name": "Jeans", "emoji": "👖", "source": "Jeans", "keywords": ["pants", "jeans", "trousers", "clothing"] },
+    { "id": "dress", "name": "Dress", "emoji": "👗", "source": "Dress", "keywords": ["dress", "clothing", "clothes"] },
+    { "id": "coat", "name": "Coat", "emoji": "🧥", "source": "Coat", "keywords": ["coat", "jacket", "clothing"] },
+    { "id": "socks", "name": "Socks", "emoji": "🧦", "source": "Socks", "keywords": ["socks", "clothing", "clothes"] },
+    { "id": "running_shoe", "name": "Shoes", "emoji": "👟", "source": "Running shoe", "keywords": ["shoes", "sneakers", "footwear", "clothing"] },
+    { "id": "sandal", "name": "Sandals", "emoji": "🩴", "source": "Thong sandal", "keywords": ["sandals", "flip flops", "footwear", "clothing"] },
+    { "id": "womans_hat", "name": "Hat", "emoji": "👒", "source": "Woman's hat", "keywords": ["hat", "cap", "clothing", "accessory"] },
+    { "id": "scarf", "name": "Scarf", "emoji": "🧣", "source": "Scarf", "keywords": ["scarf", "clothing", "accessory"] },
+    { "id": "backpack", "name": "Backpack", "emoji": "🎒", "source": "Backpack", "keywords": ["backpack", "bag", "school", "accessory"] }
+  ],
+  "books": [
+    { "id": "closed_book", "name": "Book (Closed)", "emoji": "📕", "source": "Closed book", "keywords": ["book", "closed", "reading"] },
+    { "id": "open_book", "name": "Book (Open)", "emoji": "📖", "source": "Open book", "keywords": ["book", "open", "reading"] },
+    { "id": "notebook", "name": "Notebook", "emoji": "📓", "source": "Notebook", "keywords": ["notebook", "notes", "writing"] },
+    { "id": "notebook_decorative", "name": "Decorated Notebook", "emoji": "📔", "source": "Notebook with decorative cover", "keywords": ["notebook", "decorated", "journal"] },
+    { "id": "ledger", "name": "Ledger", "emoji": "📒", "source": "Ledger", "keywords": ["ledger", "notebook", "book"] },
+    { "id": "page_facing_up", "name": "Papers", "emoji": "📄", "source": "Page facing up", "keywords": ["paper", "papers", "document", "sheet"] },
+    { "id": "newspaper", "name": "Newspaper", "emoji": "📰", "source": "Newspaper", "keywords": ["newspaper", "news", "paper", "magazine"] },
+    { "id": "bookmark", "name": "Bookmark", "emoji": "🔖", "source": "Bookmark", "keywords": ["bookmark", "book", "reading"] }
+  ],
+  "misc": [
+    { "id": "pillow", "name": "Pillow", "emoji": "🛏️", "source": "Bed", "keywords": ["pillow", "cushion", "bed", "sleep"] },
+    { "id": "bottle", "name": "Water Bottle", "emoji": "🍼", "source": "Baby bottle", "keywords": ["bottle", "water bottle", "drink"] },
+    { "id": "cup", "name": "Cup", "emoji": "☕", "source": "Hot beverage", "keywords": ["cup", "mug", "drink", "beverage"] },
+    { "id": "fork_and_knife", "name": "Plate", "emoji": "🍽️", "source": "Fork and knife with plate", "keywords": ["plate", "dish", "food", "fork", "knife"] },
+    { "id": "package", "name": "Box", "emoji": "📦", "source": "Package", "keywords": ["box", "package", "container"] },
+    { "id": "wrapped_gift", "name": "Wrapped Gift", "emoji": "🎁", "source": "Wrapped gift", "keywords": ["gift", "present", "wrapped", "box"] },
+    { "id": "scissors", "name": "Scissors", "emoji": "✂️", "source": "Scissors", "keywords": ["scissors", "cut", "tool"] },
+    { "id": "comb", "name": "Comb", "emoji": "💇", "source": "Person getting haircut", "keywords": ["comb", "brush", "hair", "hairbrush"] },
+    { "id": "sunglasses", "name": "Sunglasses", "emoji": "🕶️", "source": "Sunglasses", "keywords": ["sunglasses", "glasses", "shades", "accessory"] },
+    { "id": "mobile_phone", "name": "Phone", "emoji": "📱", "source": "Mobile phone", "keywords": ["phone", "mobile", "cellphone", "device"] },
+    { "id": "battery", "name": "Battery/Charger", "emoji": "🔋", "source": "Battery", "keywords": ["battery", "charger", "power", "cable"] },
+    { "id": "flashlight", "name": "Flashlight", "emoji": "🔦", "source": "Flashlight", "keywords": ["flashlight", "torch", "light"] }
+  ],
+  "fallback": [
+    { "id": "generic_toy", "name": "Generic Toy", "emoji": "🎁", "source": "Wrapped gift", "keywords": ["generic", "toy", "misc", "unknown"] },
+    { "id": "generic_clothing", "name": "Generic Clothing", "emoji": "👕", "source": "T-shirt", "keywords": ["generic", "clothing", "clothes", "unknown"] },
+    { "id": "generic_book", "name": "Generic Book", "emoji": "📚", "source": "Books", "keywords": ["generic", "book", "books", "unknown"] },
+    { "id": "generic_misc", "name": "Generic Item", "emoji": "📦", "source": "Package", "keywords": ["generic", "misc", "item", "unknown"] },
+    { "id": "mystery_object", "name": "Mystery Object", "emoji": "❓", "source": "Question mark", "keywords": ["mystery", "unknown", "question", "misc"] }
+  ]
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Library - Kids Messy Room Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            opacity: 0.9;
+        }
+        
+        .category {
+            margin-bottom: 40px;
+        }
+        
+        .category-header {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-header h2 {
+            font-size: 1.8em;
+        }
+        
+        .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+        
+        .asset-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .asset-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .asset-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .asset-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .asset-emoji {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .asset-keywords {
+            font-size: 0.75em;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+        }
+        
+        .license-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Asset Library</h1>
+        <p class="subtitle">Kids Messy Room Cleanup Game</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <h3 id="total-count">55</h3>
+                <p>Total Assets</p>
+            </div>
+            <div class="stat-item">
+                <h3>20</h3>
+                <p>Toys</p>
+            </div>
+            <div class="stat-item">
+                <h3>10</h3>
+                <p>Clothing</p>
+            </div>
+            <div class="stat-item">
+                <h3>8</h3>
+                <p>Books</p>
+            </div>
+            <div class="stat-item">
+                <h3>12</h3>
+                <p>Miscellaneous</p>
+            </div>
+            <div class="stat-item">
+                <h3>5</h3>
+                <p>Fallback</p>
+            </div>
+        </div>
+        
+        <input 
+            type="text" 
+            id="search" 
+            class="search-box" 
+            placeholder="🔍 Search assets by name or keyword..."
+        >
+        
+        <div id="assets-container"></div>
+        
+        <div class="footer">
+            <p><strong>Source:</strong> Microsoft FluentUI Emoji 3D</p>
+            <div class="license-badge">MIT License</div>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/microsoft/fluentui-emoji" target="_blank" style="color: #667eea;">
+                    View Original Repository →
+                </a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Load and display assets
+        async function loadAssets() {
+            try {
+                const response = await fetch('assets.json');
+                const data = await response.json();
+                
+                displayAssets(data.assets);
+                setupSearch(data.assets);
+            } catch (error) {
+                console.error('Error loading assets:', error);
+                document.getElementById('assets-container').innerHTML = 
+                    '<p style="text-align: center; color: red;">Error loading assets. Please check console.</p>';
+            }
+        }
+        
+        function displayAssets(assets, filter = '') {
+            const container = document.getElementById('assets-container');
+            container.innerHTML = '';
+            
+            const categories = {
+                'toys': 'Toys',
+                'clothing': 'Clothing', 
+                'books': 'Books',
+                'misc': 'Miscellaneous',
+                'fallback': 'Fallback Assets'
+            };
+            
+            for (const [categoryKey, categoryName] of Object.entries(categories)) {
+                const categoryAssets = assets[categoryKey];
+                if (!categoryAssets) continue;
+                
+                // Filter assets
+                const filteredAssets = Object.entries(categoryAssets).filter(([id, asset]) => {
+                    if (!filter) return true;
+                    const searchStr = filter.toLowerCase();
+                    return (
+                        asset.name.toLowerCase().includes(searchStr) ||
+                        asset.keywords.some(k => k.toLowerCase().includes(searchStr)) ||
+                        id.toLowerCase().includes(searchStr)
+                    );
+                });
+                
+                if (filteredAssets.length === 0) continue;
+                
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.innerHTML = `
+                    <h2>${categoryName}</h2>
+                    <span class="category-count">${filteredAssets.length} assets</span>
+                `;
+                
+                const grid = document.createElement('div');
+                grid.className = 'assets-grid';
+                
+                filteredAssets.forEach(([id, asset]) => {
+                    const card = document.createElement('div');
+                    card.className = 'asset-card';
+                    card.innerHTML = `
+                        <img src="${asset.file}" alt="${asset.name}" loading="lazy">
+                        <div class="asset-emoji">${asset.emoji}</div>
+                        <div class="asset-name">${asset.name}</div>
+                        <div class="asset-keywords">${asset.keywords.join(', ')}</div>
+                    `;
+                    
+                    card.onclick = () => {
+                        alert(`Asset: ${asset.name}\nID: ${id}\nFile: ${asset.file}\nSize: ${asset.size}\nKeywords: ${asset.keywords.join(', ')}`);
+                    };
+                    
+                    grid.appendChild(card);
+                });
+                
+                categoryDiv.appendChild(header);
+                categoryDiv.appendChild(grid);
+                container.appendChild(categoryDiv);
+            }
+            
+            if (container.innerHTML === '') {
+                container.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No assets found matching your search.</p>';
+            }
+        }
+        
+        function setupSearch(assets) {
+            const searchBox = document.getElementById('search');
+            let debounceTimer;
+            
+            searchBox.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    displayAssets(assets, e.target.value);
+                }, 300);
+            });
+        }
+        
+        // Load assets on page load
+        loadAssets();
+    </script>
+</body>
+</html>
