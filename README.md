@@ -424,7 +424,10 @@ function matchObjectToAsset(detectedObject, assetLibrary) {
 ```
 [Photo Upload]
       ↓
-[Claude Vision API] → Detect 35 objects (2-3 sec)
+[Vision API] → Detect 35 objects (1-3 sec)
+ 📘 See VISION_API_COMPARISON.md for cost-effective alternatives
+ 💰 Google Gemini Flash: 70% cheaper than Claude
+ 🆓 Azure AI Vision: Free tier (5K images/month)
       ↓
 [Matching Engine] → Match to library (0.1 sec)
       ↓
@@ -445,9 +448,13 @@ function matchObjectToAsset(detectedObject, assetLibrary) {
 - **Total startup**: **$4000-6500**
 
 ### **Monthly Operating Costs**
-- **Claude API** (1000 users, 3000 photos/month): ~$60
+- **Vision API** (1000 users, 3000 photos/month): ~$12-60
+  - 🆕 **Google Gemini Flash**: ~$15/month (70% cheaper!)
+  - 🆕 **Azure AI Vision**: $0/month (free tier covers MVP)
+  - Claude API: ~$45-60/month
+  - 📘 **See [VISION_API_COMPARISON.md](./VISION_API_COMPARISON.md) for detailed analysis**
 - **Hosting/Storage**: ~$20
-- **Total monthly**: **~$80** (scales with usage)
+- **Total monthly**: **~$30-80** (scales with usage, optimized with Gemini)
 
 ### **Revenue Potential**
 - **Free tier**: Basic game (ads supported)

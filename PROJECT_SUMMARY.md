@@ -569,7 +569,7 @@ Follow [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md):
 **A:** With a developer, yes. DIY might take 10-12 weeks as your first project.
 
 ### Q: What if Claude API is too expensive?
-**A:** At scale, train a custom YOLO model. But Claude is cost-effective for first 5,000+ users.
+**A:** 🆕 See [VISION_API_COMPARISON.md](./VISION_API_COMPARISON.md) for cost-effective alternatives! Google Gemini Flash offers 70% savings, and Azure AI Vision has a free tier (5,000 images/month). At scale, train a custom YOLO model.
 
 ### Q: Do I need all 50 assets to start?
 **A:** No! Start with 30 most common objects. Add more based on user data.
@@ -596,7 +596,8 @@ Kidsmessyroom/
 ├── IMPLEMENTATION_GUIDE.md     # Code examples & tutorials
 ├── VISUAL_ROADMAP.md          # 8-week development plan
 ├── DIY_AUTOMATED_APPROACH.md   # Cost-optimized asset generation
-├── ICON_PACK_RESEARCH.md       # 🆕 Open source icon pack analysis
+├── ICON_PACK_RESEARCH.md       # Open source icon pack analysis
+├── VISION_API_COMPARISON.md    # 🆕 Vision API cost analysis
 └── Messyroomgame.tsx          # Early prototype component
 ```
 
