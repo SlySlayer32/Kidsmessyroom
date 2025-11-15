@@ -1,53 +1,63 @@
 # Implementation Guide: Step-by-Step Code Examples
 
-This guide provides practical code examples for implementing each phase of the messy room cleanup game.
+**⚠️ UPDATE IN PROGRESS:** This guide is being updated to align with **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** (Gold Standard).
+
+**Current Stack (VISUAL_ROADMAP.md):**
+- **Detection API:** OpenAI GPT-4o Vision (not Claude)
+- **Canvas Library:** Konva.js with react-konva (not raw HTML5 Canvas)
+- **Dependencies:** konva, react-konva, zustand, lucide-react
+- **MVP Scope:** Week 1-8 features only (no physics, particles, or gamification)
+
+**For now, refer to:**
+- **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** for complete 8-week implementation plan
+- **[ARCHITECTURE_LOCKED.md](./ARCHITECTURE_LOCKED.md)** for technology stack details
+- Code examples below are being updated to reflect the correct stack
+
+---
 
 ## Table of Contents
-1. [Project Setup](#project-setup)
-2. [Image Upload & Detection](#image-upload--detection)
-3. [Asset Library System](#asset-library-system)
-4. [Canvas Rendering](#canvas-rendering)
-5. [Kawaii Physics Implementation](#kawaii-physics-implementation)
-6. [Gamification Features](#gamification-features)
+1. [Project Setup](#project-setup) ✅ Updated
+2. [Image Upload & Detection](#image-upload--detection) ⚠️ Being updated
+3. [Asset Library System](#asset-library-system) ⚠️ Being updated
+4. [Canvas Rendering (Konva.js)](#canvas-rendering) ⚠️ Being updated
+5. [Drag & Drop Interaction](#drag-drop-interaction) ⚠️ Being updated
+6. ~~[Kawaii Physics Implementation]~~ Phase 2 only
+7. ~~[Gamification Features]~~ Phase 2 only
 
 ---
 
 ## Project Setup
 
-### Create Next.js Project with TypeScript
+### Create Next.js Project with TypeScript (Week 1 of VISUAL_ROADMAP.md)
 
 ```bash
 # Create new Next.js app
-npx create-next-app@latest kidsmessyroom --typescript --tailwind --app
+npx create-next-app@latest toca-room --typescript --tailwind
 
 # Install dependencies
-cd kidsmessyroom
-npm install framer-motion
-npm install zustand
-npm install @anthropic-ai/sdk
-npm install lucide-react
+cd toca-room
+npm install konva react-konva zustand lucide-react
 
-# Install dev dependencies
+# Optional dev dependencies
 npm install -D @types/node
 ```
 
-### Project Structure
+### Project Structure (From VISUAL_ROADMAP.md)
 
 ```
-kidsmessyroom/
+toca-room/
 ├── app/
 │   ├── api/
-│   │   ├── detect/route.ts          # Claude Vision API endpoint
-│   │   └── match/route.ts           # Object matching endpoint
+│   │   └── detect/
+│   │       └── route.ts          # OpenAI GPT-4o Vision API endpoint
 │   ├── game/
-│   │   └── page.tsx                 # Main game page
+│   │   └── page.tsx              # Main game page
 │   ├── layout.tsx
-│   └── page.tsx                     # Landing page
+│   └── page.tsx                  # Landing/upload page
 ├── components/
-│   ├── ImageUpload.tsx              # Photo upload component
-│   ├── GameCanvas.tsx               # Main game canvas
-│   ├── KawaiiObject.tsx             # Animated object component
-│   ├── ParticleSystem.tsx           # Particle effects
+│   ├── ImageUpload.tsx           # Photo upload component
+│   ├── GameCanvas.tsx            # Konva.js Stage component
+│   └── ProgressTracker.tsx       # Progress UI
 │   └── ProgressTracker.tsx          # Score/progress display
 ├── lib/
 │   ├── detection.ts                 # Object detection logic
