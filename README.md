@@ -3,18 +3,27 @@
 ````markdown
 # Kidsmessyroom
 
-## ⚠️ ARCHITECTURE DECISION UPDATE
+## ⭐ GOLD STANDARD ROADMAP
 
-**The project architecture has been finalized. See `ARCHITECTURE_LOCKED.md` for the definitive approach.**
+**The complete development plan is in `docs/VISUAL_ROADMAP.md` - This is the verified source of truth for all decisions.**
 
-**Locked Decisions:**
-- **Detection API:** Azure AI Vision (highest quality, 5,000 free/month)
-- **Asset Library:** FluentUI Emoji 3D (Microsoft, MIT, 2,980 icons, $0 cost)
-- **Core Purpose:** Upload image → Detect objects → Replace with emoji → Drag to clean
+**🎯 Read First:** [**VISUAL_ROADMAP.md**](./docs/VISUAL_ROADMAP.md) - Gold Standard 8-week MVP plan
 
-**MVP Scope:** Core drag-drop cleanup only  
-**Future Phases:** Sound, particles, physics, gamification (post-MVP)  
-**Locked Out:** Alternative APIs, commissioned art
+### Locked Technology Stack (From VISUAL_ROADMAP.md):
+- **Detection API:** OpenAI GPT-4o Vision (state-of-the-art, cost-effective per-call)
+- **Game Canvas:** Konva.js (powerful 2D canvas with React integration)
+- **Asset Library:** FluentUI Emoji 3D (Microsoft, MIT, 50-70 sprites for MVP)
+- **Framework:** Next.js + TypeScript + Tailwind CSS
+- **Core Purpose:** Upload photo → GPT-4o detects objects → Konva.js renders Toca Boca scene → Drag to cleanup zones
+
+**8-Week MVP Timeline:**
+- Week 1-2: Foundations & Asset Pipeline
+- Week 3-4: AI Vision & Object Detection
+- Week 5-6: Scene Reconstruction & Matching
+- Week 7: Interaction & Gameplay
+- Week 8: Testing & Deployment
+
+**Phase 2 (Post-MVP):** Custom art, physics, sound, gamification - only after MVP validates concept
 
 ---
 
@@ -33,107 +42,81 @@ first create a kawaii flat style icon library using the plugin there is a Kawaii
 
 ---
 
-## 🎯 **NEW: Open Source Icon Pack Research!**
+## 📚 Documentation Guide
 
-**Great news!** We've identified high-quality open source icon packs that can replace commissioned artwork:
+**Start here in this order:**
 
-📘 **[Read the Complete Research →](./ICON_PACK_RESEARCH.md)**
+1. **[VISUAL_ROADMAP.md](./docs/VISUAL_ROADMAP.md)** ⭐⭐⭐ - Gold Standard development plan (READ FIRST)
+2. **[ARCHITECTURE_LOCKED.md](./docs/ARCHITECTURE_LOCKED.md)** - Consolidated architecture aligned with roadmap
+3. **[START_HERE.md](./docs/START_HERE.md)** - Quick reference and decision matrix
+4. **[ICON_PACK_RESEARCH.md](./docs/ICON_PACK_RESEARCH.md)** - FluentUI Emoji 3D setup guide
+5. **[IMPLEMENTATION_GUIDE.md](./docs/IMPLEMENTATION_GUIDE.md)** - Code examples and patterns
 
-### Quick Summary:
-- **FluentUI Emoji 3D** (Microsoft, MIT License) - 2,980 icons covering **92% of needs**
-- **Kenney.nl** (CC0 License) - 70,000+ game assets
-- **Game-icons.net** (CC BY 3.0) - 4,170+ customizable icons
-- **Cost: $0** (vs $750-1,500 for commissioned artwork)
-- **Time: 3-5 hours** to implement (vs 2-4 weeks)
+### Asset Library: FluentUI Emoji 3D (MVP Choice)
+- **Source:** Microsoft FluentUI Emoji 3D (MIT License)
+- **MVP Scope:** 50-70 high-quality 3D PNGs
+- **Coverage:** 92% of common room objects
+- **Cost:** $0 (free, MIT licensed)
+- **Setup Time:** 3-5 hours (Week 1-2)
+- **Phase 2:** Replace with custom-commissioned Toca Boca-style art
 
-**Recommended:** Start with FluentUI Emoji 3D + add 4 custom icons for the remaining 8%
+📘 **[Complete Setup Guide →](./docs/ICON_PACK_RESEARCH.md)**
 
 ---
 
-## Your New Workflow
+## How It Works (From VISUAL_ROADMAP.md)
 
 ```
 1. User uploads messy room photo
-2. AI detects: "teddy bear, toy car, book, t-shirt..."
-3. App matches detected objects to your cartoon library
-4. Replace real objects with cartoon sprites at same positions
-5. Kid drags cartoon objects around
-6. Compare with new photo to track real cleanup
+2. OpenAI GPT-4o detects objects with bounding box positions
+3. App matches detected objects to FluentUI Emoji library using keywords
+4. Konva.js renders Toca Boca-style scene with positioned sprites
+5. Kid drags objects to cleanup zones using Konva.js drag-drop
+6. Progress tracked: "Items Cleaned: X / Y"
+7. Celebrate completion!
 ```
 
----
-
-## Asset Library You'll Need
-
-### **Tier 1: Common Objects (Build First)**
-Create ~50 cartoon assets covering 80% of messy room items:
-
-**Toys (20 assets)**
-- Teddy bear, doll, action figure, toy car, ball
-- Stuffed animal (generic), building blocks, puzzle pieces
-- Robot toy, dinosaur, plush toy, board game
-- LEGO pile, toy truck, play food, musical toy
-
-**Clothes (10 assets)**
-- T-shirt, pants, socks, dress, jacket
-- Shoes (sneakers), pajamas, hoodie, underwear, backpack
-
-**Books/School (8 assets)**
-- Book (closed), book (open), notebook, papers scattered
-- Pencil case, school bag, art supplies, folder
-
-**Miscellaneous (12 assets)**
-- Pillow, blanket, towel, bag/tote
-- Water bottle, snack wrapper, empty cup, plate
-- Remote control, tablet/device, charger cable, misc clutter
-
-### **Tier 2: Room-Specific (Add Later)**
-- Furniture pieces, decorations, sports equipment, etc.
+**Key Innovation:** Asset replacement (not photo styling) - exactly how Toca Boca works!
 
 ---
 
-## How to Create Your Asset Library
+## Quick Start
 
-### **Option 0: Use Open Source Icon Packs** (NEW - LOWEST COST) 🆕
+### Prerequisites
+- Node.js 18+
+- OpenAI API key
+- Basic understanding of React/Next.js (or hire developer)
 
-**See [ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md) for complete details**
+### Setup (Week 1 of VISUAL_ROADMAP.md)
 
-**FluentUI Emoji 3D (Microsoft)**:
-- **Cost**: $0 (MIT License)
-- **Coverage**: 92% (46/50 assets)
-- **Time**: 3-5 hours to download and organize
-- **Quality**: Professional, Microsoft-grade
-- **License**: MIT - Commercial use allowed, no attribution required
+```bash
+# Create Next.js project
+npx create-next-app@latest toca-room --typescript --tailwind
 
-**Quick start**:
-1. Download from https://github.com/microsoft/fluentui-emoji
-2. Select 46 matching icons from the 2,980 available
-3. Generate or source 4 additional icons for gaps
-4. Done! Ready to use in your game.
+# Install dependencies
+cd toca-room
+npm install konva react-konva zustand lucide-react
 
-**Pros**: Zero cost, professional quality, legally safe, fast implementation  
-**Cons**: 3D style (not flat kawaii), may need minor style adjustments
+# Download FluentUI Emoji 3D assets
+# See ICON_PACK_RESEARCH.md for detailed instructions
+git clone https://github.com/microsoft/fluentui-emoji
+# Select and organize 50-70 3D PNGs into:
+# public/assets/toys/
+# public/assets/clothing/
+# public/assets/books/
+# public/assets/furniture/
+
+# Create assets.json metadata file with keywords
+# Follow VISUAL_ROADMAP.md Week 1-2 tasks
+```
+
+**Complete setup guide:** See [VISUAL_ROADMAP.md](./docs/VISUAL_ROADMAP.md) Week 1-2 section
 
 ---
 
-### **Option 1: Commission an Artist** (HIGHEST QUALITY)
+## Original Research Notes (Historical)
 
-**Where to find**:
-- **Fiverr/Upwork**: Search "Toca Boca style illustration" or "kids game assets"
-- **Dribbble**: Find artists with cartoon portfolio
-- **Cost**: $10-30 per asset, $500-1500 for 50 assets
-
-**Brief to artist**:
-> "I need 50 cartoon objects in Toca Boca style for a kids cleanup game:
-> - Flat design, bright colors, simple rounded shapes
-> - Cute faces on objects (optional)
-> - Transparent background PNG, 512x512px
-> - Each object should be recognizable at small size
-> - Consistent art style across all assets"
-
-### **Option 2: AI-Generated Assets** (Faster/Cheaper)
-
-Use DALL-E or Midjourney to generate consistent assets:
+The following sections document the research process that led to the current architecture:
 
 **Prompt template**:
 ```

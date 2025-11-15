@@ -1,41 +1,159 @@
 # Project Summary: Kids Messy Room Game 🧸✨
 
-**Complete research and planning for a Toca Boca-style kids cleanup game**
+**Complete research and implementation planning for a Toca Boca-style kids cleanup game**
+
+**⭐ SOURCE OF TRUTH:** All decisions follow [**VISUAL_ROADMAP.md**](./VISUAL_ROADMAP.md) (Gold Standard)
 
 ---
 
 ## 📖 What's in This Repository?
 
-This repository contains **comprehensive research and implementation guides** for building an app that transforms messy room photos into interactive, animated cleanup games.
+This repository contains **comprehensive research, planning, and implementation guides** for building a web app that transforms messy room photos into interactive Toca Boca-style cleanup games.
 
-### 🎯 The Vision
+### 🎯 The Vision (From VISUAL_ROADMAP.md)
 
-Kids take photos of their messy rooms → AI detects objects → App creates Toca Boca-style cartoon version → Kids play cleanup game → Track progress & earn rewards → Motivate real-world cleanup!
+Kids upload messy room photos → OpenAI GPT-4o detects objects with positions → App matches to FluentUI Emoji sprites → Konva.js renders Toca Boca-style scene → Kids drag objects to cleanup zones → Track progress → Motivate real-world cleanup!
+
+**8-Week MVP Timeline** with clear deliverables and phase gates.
 
 ---
 
-## 📚 Complete Documentation Set
+## 📚 Documentation Hierarchy (Read in This Order)
 
-### 1️⃣ **[QUICK_START.md](./QUICK_START.md)** - Start Here! 
-**For non-technical founders - Your Week 1 action plan**
+### ⭐⭐⭐ **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** - GOLD STANDARD (READ FIRST!)
+**The complete, verified 8-week development plan - Source of truth for ALL decisions**
+
+**Why this is #1:**
+- Complete week-by-week MVP plan (8 weeks to launch)
+- All technology stack decisions with reasoning
+- Phase 2 enhancement roadmap (custom art, physics, sound, gamification)
+- Proven development pattern for this type of app
+- Cost-effective, realistic timeline
+
+**What you'll find:**
+- ✅ Foundations & Asset Pipeline (Week 1-2)
+- ✅ AI Vision & Object Detection with GPT-4o (Week 3-4)
+- ✅ Scene Reconstruction & Asset Matching (Week 5-6)
+- ✅ Interaction & Core Gameplay (Week 7)
+- ✅ User Testing, Polish & Deployment (Week 8)
+- ✅ Post-MVP Phase 2 enhancements (custom art, physics, sound)
+
+**Core Principles:**
+- MVP First, Polish Second
+- Open-Source by Default
+- Asset Replacement is Key
+- User Feedback is Crucial
+
+**Time to read:** 60-90 minutes  
+**Time to implement:** 8 weeks to MVP launch
+
+---
+
+### 1️⃣ **[ARCHITECTURE_LOCKED.md](./ARCHITECTURE_LOCKED.md)** - Consolidated Architecture
+**Aligned with VISUAL_ROADMAP.md - All architectural decisions in one place**
+
+What's inside:
+- ✅ Locked technology stack (GPT-4o, Konva.js, FluentUI Emoji, Next.js)
+- ✅ Phased approach (MVP vs Phase 2)
+- ✅ In-scope MVP features (8-week checklist)
+- ✅ Success metrics and cost structure
+- ✅ File structure and implementation priorities
+
+**Time to read:** 20 minutes
+
+---
+
+### 2️⃣ **[START_HERE.md](./START_HERE.md)** - Quick Reference
+**Quick decision matrix and common tasks**
+
+What you'll find:
+- ✅ Core project truth statement
+- ✅ Quick decision matrix
+- ✅ Document hierarchy
+- ✅ Quick start steps (5 steps)
+- ✅ Common tasks (add objects, improve matching, update API)
+- ✅ Success checklist
+
+**Time to read:** 10 minutes
+
+---
+
+### 3️⃣ **[ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)** - FluentUI Emoji Setup
+**Complete guide to using FluentUI Emoji 3D for MVP** ⭐
+
+What's included:
+- ✅ FluentUI Emoji 3D overview (Microsoft, MIT License, 2,980 icons)
+- ✅ Download and organization instructions
+- ✅ Coverage analysis (92% of needed assets)
+- ✅ Asset categories (toys, clothing, books, furniture)
+- ✅ Metadata structure for matching
+
+**Key Facts:**
+- 💰 **Cost:** $0 (MIT license, free commercial use)
+- ⚡ **Time:** 3-5 hours to set up
+- 📜 **License:** MIT (no attribution required)
+- ⭐ **Quality:** Professional Microsoft-grade
+
+**Time to read:** 20 minutes  
+**Time to implement:** 3-5 hours (Week 1-2)
+
+---
+
+### 4️⃣ **[IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)** - Code Examples
+**Practical code patterns and examples**
+
+**Note:** Being updated to reflect VISUAL_ROADMAP.md stack (GPT-4o + Konva.js)
+
+What's included:
+- Code examples for OpenAI GPT-4o Vision integration
+- Konva.js canvas setup and patterns
+- Asset matching algorithm implementation
+- State management with Zustand
+- Component structure
+
+**Time to read:** 1-2 hours  
+**Reference during:** Active development
+
+---
+
+### 5️⃣ **[QUICK_START.md](./QUICK_START.md)** - Week 1 Action Plan
+**For non-technical founders - validation and planning**
 
 What you'll learn:
-- ✅ How to validate the concept in 2 hours
-- ✅ Testing object detection with Claude API
-- ✅ Creating your asset list (top 50 objects)
-- ✅ **NEW:** DIY automated asset generation ($5-10 vs $750!)
-- ✅ Alternative: Finding and hiring Toca Boca-style artists
-- ✅ DIY vs hire developer decision framework
-- ✅ Budget planning ($755 - $5,755 with DIY approach)
-- ✅ Week 1 checklist to complete
+- ✅ How to validate concept with OpenAI API
+- ✅ Creating asset list (50-70 objects)
+- ✅ FluentUI Emoji vs commissioned art decision
+- ✅ DIY vs hire developer framework
+- ✅ Budget planning
 
 **Time to read:** 30 minutes  
-**Time to complete Week 1:** 8-10 hours
+**Time to complete:** 8-10 hours (validation and planning)
 
 ---
 
-### 🆕 **[ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)** - Open Source Icon Pack Analysis
-**Comprehensive investigation of free/open-source icon libraries** ⭐ NEW!
+## 📖 Supporting Documentation (Historical Research)
+
+The following documents contain valuable research but may reference older approaches. **Always defer to VISUAL_ROADMAP.md for current decisions.**
+
+### **[DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)** - AI Asset Generation Research
+**Alternative approach for generating custom assets using AI**
+
+**Note:** VISUAL_ROADMAP.md specifies FluentUI Emoji for MVP, custom art for Phase 2. This doc explores automated generation as an alternative.
+
+What's included:
+- AI image generation APIs (DALL-E, Stable Diffusion)
+- Automation workflows
+- Asset generation scripts
+- Quality control processes
+
+**Time to read:** 45 minutes
+
+---
+
+### **[TECHNICAL_RESEARCH.md](./TECHNICAL_RESEARCH.md)** - Deep Technical Dive
+**Comprehensive technical exploration (41KB, ~10,000 words)**
+
+**Note:** Contains valuable research but may reference Claude API. VISUAL_ROADMAP.md specifies OpenAI GPT-4o as the choice.
 
 **Save $750-1,500!** Use high-quality open source icon packs instead of commissioning artists.
 
