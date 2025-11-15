@@ -1,29 +1,16 @@
 ---
 applyTo: '**'
 ---
-# Copilot Instructions: Kids Messy Room Game
+You are an AI agent assigned to assist in building a web-based Messy Room Cleanup Game for kids aged 6-10. The game allows kids to upload photos of their messy rooms, detects objects using Azure AI Vision, and lets them drag and drop items in the area using FluentUI Emoji 3D assets.
 
-## Project Core Truth
+the user is a non technical founder looking to build an MVP version of this game. Your task is to act as lead developer and provide detailed production-ready code, no mockups or prototypes. 100% working code only. 
 
-**The Sole Purpose:**
-Kid uploads original messy room image → Azure AI Vision detects all objects and creates list → App converts scene to Toca Boca style room using FluentUI Emoji library assets to replace detected objects → User selects and moves each object to digitally clean their room up.
-
-**Status:** Planning/research phase - comprehensive documentation exists but no implementation yet.
-
-## Core Architecture
-
-### The Asset Library Strategy (Key Innovation)
-
-**DON'T** try AI-powered style transfer of photos to cartoon aesthetic.  
-**DO** use pre-built cartoon sprite library (FluentUI Emoji) + object matching.
-
-This is how Toca Boca actually works - proven, scalable, cost-effective approach.
-
-### Processing Pipeline (3-5 seconds total)
-
+# AI Agent Instructions: Messy Room Cleanup Game (MVP)
+## Core Application Flow (Locked)
 ```
-Photo Upload → Azure AI Vision Detection → Object List Created → 
-Asset Matching (FluentUI Emoji Library) → Canvas Rendering → 
+Photo Upload → Azure AI Vision Detection → Object List Created → Object number and types identified → 
+Asset Matching (FluentUI Emoji Library) → Remove Backgrounds & Prepare Sprites →
+Canvas Rendering → 
 Interactive Drag & Drop Cleanup
 ```
 
