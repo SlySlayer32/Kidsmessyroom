@@ -2,149 +2,166 @@
 
 **For Non-Technical Founders:** Your step-by-step guide to getting started TODAY.
 
+**⭐ Important:** This guide provides quick validation steps. For the complete 8-week development plan, see **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** (Gold Standard).
+
 ---
 
 ## 🎯 The Big Picture (30-second version)
 
-**What you're building:** A mobile game where kids take photos of their messy room, the app turns it into a Toca Boca-style cartoon, and kids clean up the animated room for points and rewards.
+**What you're building:** A web game where kids upload photos of their messy room, the app turns it into a Toca Boca-style cartoon using FluentUI Emoji sprites, and kids clean up by dragging objects to cleanup zones.
 
-**How it works:**
+**How it works (From VISUAL_ROADMAP.md):**
 1. Kid uploads messy room photo
-2. AI detects objects (teddy bear, toy car, t-shirt, etc.)
-3. App replaces real objects with cute cartoon sprites
-4. Kid drags cartoon objects to "clean zone"
-5. Track progress, earn stars, unlock rewards
+2. OpenAI GPT-4o detects objects with positions (teddy bear, toy car, t-shirt, etc.)
+3. App matches objects to FluentUI Emoji 3D sprites
+4. Konva.js renders Toca Boca-style scene with positioned sprites
+5. Kid drags objects to cleanup zones
+6. Track progress: "Items Cleaned: X / Y"
 
-**Why this works:** This is EXACTLY how Toca Boca, The Sims, and Animal Crossing work - using a library of pre-made cartoon assets, not AI magic.
-
----
-
-## 🎨 Asset Creation Approach: Two Options
-
-### Option 1: DIY Automated (Recommended - Save $745!)
-
-**Use AI tools to generate assets automatically** - See **[DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md)** for complete guide.
-
-- ✅ **Cost:** $5-10 total (DALL-E API)
-- ✅ **Time:** 50 minutes to generate 50 assets
-- ✅ **Control:** Full automation with GitHub Actions
-- ✅ **Scalability:** $0.10 per additional asset
-- ✅ **Tools:** OpenAI DALL-E, Stable Diffusion, or free SVG libraries
-
-**Quick setup:**
-```bash
-npm install openai sharp
-node scripts/generate-assets.js
-```
-
-### Option 2: Commission Artist (Original Approach)
-
-**Hire a Toca Boca-style artist on Fiverr** - See sections below for details.
-
-- 💰 **Cost:** $750-1,500 total
-- ⏱️ **Time:** 2-4 weeks wait
-- 🎨 **Quality:** Professional, hand-crafted
-- 📦 **Delivery:** Batch delivery with revisions
-
-**Best for:** If you prefer human-crafted assets and have budget.
+**Why this works:** This is EXACTLY how Toca Boca, The Sims, and Animal Crossing work - using a library of pre-made cartoon assets with asset replacement, not AI magic.
 
 ---
 
-## ✅ What You Need to Do This Week (Week 1)
+## 🎨 Asset Choice for MVP (From VISUAL_ROADMAP.md)
 
-### Monday-Tuesday: Validate the Approach
+### FluentUI Emoji 3D (Locked MVP Choice)
 
-**Task 1: Test Object Detection (2 hours)**
+**Use Microsoft's free, high-quality 3D emoji library** - See **[ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)** for complete setup guide.
 
-1. **Sign up for Claude API:**
-   - Go to: https://console.anthropic.com/
+- ✅ **Cost:** $0 (MIT License, free commercial use)
+- ✅ **Time:** 3-5 hours to download and organize
+- ✅ **Coverage:** 50-70 sprites covering 92% of needs
+- ✅ **Quality:** Professional Microsoft-grade assets
+- ✅ **License:** MIT - No attribution required
+
+**Setup (Week 1-2 of VISUAL_ROADMAP.md):**
+1. Clone: https://github.com/microsoft/fluentui-emoji
+2. Select 50-70 3D style PNGs (toys, clothing, books, furniture)
+3. Organize into categories
+4. Create assets.json with comprehensive keywords
+
+### Phase 2: Custom Art (Post-MVP)
+
+**Commission custom Toca Boca-style art ONLY after MVP validates concept**
+
+- 💰 **Cost:** $750-1,500 (50-70 custom assets)
+- ⏱️ **Timeline:** Phase 2 (Milestone 1)
+- 🎨 **Quality:** Unique branded style
+- 📋 **When:** Only after MVP launch proves concept is fun
+
+**See VISUAL_ROADMAP.md Phase 2 for details.**
+
+---
+
+## ✅ Quick Validation (Before Week 1)
+
+**Goal:** Validate the concept works before diving into the 8-week plan
+
+### Monday-Tuesday: Test Object Detection (2 hours)
+
+**Task: Test OpenAI GPT-4o Vision API**
+
+1. **Sign up for OpenAI API:**
+   - Go to: https://platform.openai.com/
    - Create account
-   - Add payment method (you'll only spend ~$0.50 testing)
-   - Get API key
+   - Add payment method (you'll spend ~$0.30-0.50 testing)
+   - Get API key from: https://platform.openai.com/api-keys
 
 2. **Test with real images:**
    - Take 10 photos of messy kids' rooms (or download from Google Images)
-   - Use Claude's web interface (console.anthropic.com)
-   - Upload each image
-   - Ask: "List all movable objects in this messy room"
+   - Use OpenAI Playground or API to test detection
+   - Prompt: "Analyze this image of a room. Identify every distinct object on the floor or furniture. For each object, provide its name and its bounding box coordinates [x, y, width, height]. Return this data as a clean JSON array."
 
 3. **Record results in a spreadsheet:**
    ```
    Photo | Objects Detected | Accuracy | Common Items
-   1     | 23              | Good     | toys, clothes, books
-   2     | 31              | Great    | toys, clothes, pillow
+   1     | 23              | Excellent| toys, clothes, books
+   2     | 31              | Excellent| toys, clothes, pillow
    ```
 
 **What you're looking for:**
 - Does it detect 20-50 objects per image? ✅
-- Is it 80%+ accurate? ✅
+- Is it 85%+ accurate? ✅
+- Does it provide bounding box positions? ✅
 - What are the most common objects? (This becomes your asset list)
 
 **If this works well, you have validated the core technology!** ✅
 
----
-
-### Wednesday-Thursday: Create Your Asset List
-
-**Task 2: Build Your "Top 50 Objects" List (3 hours)**
-
-From your 10 test photos, create a spreadsheet:
-
-| Object Name | Frequency | Category | Priority | Notes |
-|-------------|-----------|----------|----------|-------|
-| Teddy bear  | 8/10      | Toys     | HIGH     | Most common toy |
-| T-shirt     | 9/10      | Clothing | HIGH     | Almost always present |
-| Book        | 6/10      | Books    | MEDIUM   | Common in older kids' rooms |
-| Toy car     | 7/10      | Toys     | HIGH     | Very common |
-
-**Categories:**
-- Toys (aim for 18 assets)
-- Clothing (aim for 12 assets)
-- Books/School (aim for 8 assets)
-- Miscellaneous (aim for 12 assets)
-
-**Pro tip:** See `TECHNICAL_RESEARCH.md` section "Tier 1 Asset List" for a pre-made list of 50 common items.
+**Next Steps:** See **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md) Week 1-2** for complete asset setup.
 
 ---
 
-### Friday: Choose Your Asset Creation Method
+### Wednesday-Thursday: Understand the Asset Strategy
 
-**Task 3A: DIY Automated Setup (2 hours) - RECOMMENDED**
+**From VISUAL_ROADMAP.md:** MVP uses **FluentUI Emoji 3D** (Microsoft, MIT License, $0 cost)
 
-If you chose the DIY automated approach:
+**Why FluentUI Emoji for MVP:**
+- ✅ Free, professional quality (2,980 icons available)
+- ✅ Covers 92% of needed objects (50-70 sprites)
+- ✅ MIT licensed (commercial use, no attribution)
+- ✅ 3-5 hours to set up vs. weeks for custom art
+- ✅ Validated, proven approach
 
-1. **Set up API keys:**
-   - OpenAI DALL-E: https://platform.openai.com/api-keys
-   - Get $5 free credit (enough for 50 assets!)
-   - Or use Replicate + Stable Diffusion: $0.50 total
+**Phase 2 (Post-MVP):** Commission custom Toca Boca art ONLY after MVP proves concept is fun.
 
-2. **Install tools:**
-   ```bash
-   npm install openai sharp dotenv
-   mkdir -p scripts public/assets/{toys,clothing,books,misc}
-   ```
+**Task: Plan Your Asset Library**
 
-3. **Copy generation script:**
-   - Download from `DIY_AUTOMATED_APPROACH.md`
-   - Or use the GitHub Actions workflow
+1. **Review asset categories** (from VISUAL_ROADMAP.md):
+   - Toys (teddy bear, toy car, ball, blocks, etc.)
+   - Clothing (t-shirt, pants, dress, socks, etc.)
+   - Books (book, notebook, papers, etc.)
+   - Furniture (pillow, blanket, etc.)
 
-4. **Generate test assets:**
-   ```bash
-   node scripts/generate-assets.js "teddy bear,toy car,book"
-   ```
+2. **Map detected objects to FluentUI Emoji:**
+   - Review your 10 test photos
+   - For each common object, find matching FluentUI Emoji
+   - Document in spreadsheet: Object → FluentUI Emoji → Keywords
 
-5. **Verify quality:**
-   - Check generated images in `public/assets/`
-   - Ensure kawaii style is consistent
-   - Run consistency checker
-
-**See [DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md) for complete guide.**
+**Complete setup guide:** See [ICON_PACK_RESEARCH.md](./ICON_PACK_RESEARCH.md)
 
 ---
 
-**Task 3B: Hire a Toca Boca-Style Artist (3 hours) - ALTERNATIVE**
+### Friday-Weekend: Ready to Build
 
-If you chose the artist commission approach:
+**Decision Point:** DIY or Hire Developer?
+
+**If DIY:** Follow **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** Week 1-8 plan
+- Week 1-2: Download FluentUI Emoji, set up Next.js project
+- Week 3-4: Build detection with GPT-4o
+- Week 5-6: Implement asset matching and Konva.js rendering
+- Week 7: Add drag-drop interaction
+- Week 8: Test and deploy
+
+**If Hiring:** Share **[VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** with developer
+- Provides complete 8-week implementation plan
+- All technology decisions explained
+- Success metrics and deliverables per week
+
+---
+
+## 📚 Next: Follow the 8-Week Plan
+
+**Continue with [VISUAL_ROADMAP.md](./VISUAL_ROADMAP.md)** for:
+- Detailed week-by-week tasks
+- Code setup instructions
+- FluentUI Emoji download and organization
+- OpenAI GPT-4o integration steps
+- Konva.js canvas implementation
+- Testing and deployment checklist
+
+---
+
+## 🗂️ Historical Asset Options (Reference Only)
+
+The following sections document alternative asset creation approaches researched. **For MVP, use FluentUI Emoji per VISUAL_ROADMAP.md.**
+
+### Historical: DIY AI-Generated Assets
+
+**Note:** See [DIY_AUTOMATED_APPROACH.md](./DIY_AUTOMATED_APPROACH.md) for details on AI generation. VISUAL_ROADMAP.md specifies FluentUI Emoji for MVP, custom art for Phase 2.
+
+### Historical: Commission Custom Art
+
+**Note:** Custom art commissioning is reserved for Phase 2 (Milestone 1) per VISUAL_ROADMAP.md. Only pursue after MVP validates concept.
 
 **Where to find them:**
 1. **Fiverr** (recommended): https://fiverr.com
